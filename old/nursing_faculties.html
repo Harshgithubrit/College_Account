@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Welcome To | MJGE </title>
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    
+<link href="css/connection.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Preloader Css -->
+    <link href="plugins/material-design-preloader/md-preloader.css" rel="stylesheet" />
+
+    <!-- Morris Chart Css-->
+    <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="css/themes/all-themes.css" rel="stylesheet" />
+
+
+    <script type='text/javascript'>
+        var isCtrl = false;
+        document.onkeyup=function(e)
+        {
+        if(e.which == 17)
+        isCtrl=false;
+        }
+        document.onkeydown=function(e)
+        {
+        if(e.which == 123)
+        isCtrl=true;
+        if (((e.which == 85) || (e.which == 65) || (e.which == 88) || (e.which == 67) || (e.which == 86) || (e.which == 2) || (e.which == 3) || (e.which == 123) || (e.which == 83)) && isCtrl == true)
+        {
+        //alert('This is Function Disabled');
+        return false;
+        }
+        }
+        // right click code
+        var isNS = (navigator.appName == "Netscape") ? 1 : 0;
+        if(navigator.appName == "Netscape") document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
+        function mischandler(){
+           // alert('This is Function Disabled');
+        return false;
+        }
+        function mousehandler(e){
+        var myevent = (isNS) ? e : event;
+        var eventbutton = (isNS) ? myevent.which : myevent.button;
+        if((eventbutton==2)||(eventbutton==3)) return false;
+        }
+        document.oncontextmenu = mischandler;
+        document.onmousedown = mousehandler;
+        document.onmouseup = mousehandler;
+        //select content code disable  alok goyal
+        function killCopy(e){
+        return false
+        }
+        function reEnable(){
+        return true
+        }
+        document.onselectstart=new Function ("return false")
+        if (window.sidebar){
+        document.onmousedown=killCopy
+        document.onclick=reEnable
+        }
+        </script>
+        
+        <style type="text/css" media="print">
+            BODY {display:none;visibility:hidden;}
+            </style>
+
+</head>
+
+<body class="theme-indigo"  ng-controller="myCtrl"  oncopy="return false" onpaste="return false" oncut="return false" >
+
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="md-preloader pl-size-md">
+                <svg viewbox="0 0 75 75">
+                    <circle cx="37.5" cy="37.5" r="33.5" class="pl-red" stroke-width="4" />
+                </svg>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar 
+    
+    -->
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="http://mjcnursing.com/"> Home > Faculties</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Call Search 
+                    <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
+                   --> <!-- #END# Call Search -->
+                   
+                    <!-- #END# Notifications -->
+                    
+                    <!-- #END# Tasks -->
+                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true">M J College of Nursing</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="" style="margin-top: 90px;">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2>Faculties</h2>
+            </div>
+
+
+            <div class="row clearfix">
+                <!-- Task Info -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>We have highly qualified and dedicated staff. Teaching is totally through audio Visual method where students can interact with faculty members</h2>
+                            
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-hover dashboard-task-infos">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Designation</th>
+                                            <th>Educational Qualification</th>
+                                            <th>Experience</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Task A</td>
+                                            <td><span class="label bg-green">Professor, Principal</span></td>
+                                            <td>M.sc (Nursing), Community Health Nsg</td>
+                                            <td>
+                                                10Yrs
+                                            </td>
+                                        </tr>
+
+                                        
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Task A</td>
+                                            <td><span class="label bg-green">Professor, Principal</span></td>
+                                            <td>M.sc (Nursing), Community Health Nsg</td>
+                                            <td>
+                                                10Yrs
+                                            </td>
+                                        </tr>
+
+                                        
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Task A</td>
+                                            <td><span class="label bg-green">Professor, Principal</span></td>
+                                            <td>M.sc (Nursing), Community Health Nsg</td>
+                                            <td>
+                                                10Yrs
+                                            </td>
+                                        </tr>
+
+                                        
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Task A</td>
+                                            <td><span class="label bg-green">Professor, Principal</span></td>
+                                            <td>M.sc (Nursing), Community Health Nsg</td>
+                                            <td>
+                                                10Yrs
+                                            </td>
+                                        </tr>
+
+                                        
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Task A</td>
+                                            <td><span class="label bg-green">Professor, Principal</span></td>
+                                            <td>M.sc (Nursing), Community Health Nsg</td>
+                                            <td>
+                                                10Yrs
+                                            </td>
+                                        </tr>
+
+                                        
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Task A</td>
+                                            <td><span class="label bg-green">Professor, Principal</span></td>
+                                            <td>M.sc (Nursing), Community Health Nsg</td>
+                                            <td>
+                                                10Yrs
+                                            </td>
+                                        </tr>
+
+                                        
+                                        <tr>
+                                            <td>6</td>
+                                            <td>Task A</td>
+                                            <td><span class="label bg-green">Professor, Principal</span></td>
+                                            <td>M.sc (Nursing), Community Health Nsg</td>
+                                            <td>
+                                                10Yrs
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Task Info -->
+
+            </div>
+        </div>
+    </section>
+
+
+
+       <!-- Jquery Core Js -->
+       <script src="app/index.js"></script>
+
+    <!-- Jquery Core Js -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="plugins/node-waves/waves.js"></script>
+
+    <!-- Jquery CountTo Plugin Js -->
+    <script src="plugins/jquery-countto/jquery.countTo.js"></script>
+
+    <!-- Morris Plugin Js -->
+    <script src="plugins/raphael/raphael.min.js"></script>
+    <script src="plugins/morrisjs/morris.js"></script>
+
+    <!-- ChartJs -->
+    <script src="plugins/chartjs/Chart.bundle.js"></script>
+
+    <!-- Flot Charts Plugin Js -->
+    <script src="plugins/flot-charts/jquery.flot.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.resize.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.pie.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.categories.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.time.js"></script>
+
+    <!-- Sparkline Chart Plugin Js -->
+    <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
+    <!-- Custom Js -->
+    <script src="js/admin.js"></script>
+    <script src="js/pages/index.js"></script>
+
+</body>
+
+</html>

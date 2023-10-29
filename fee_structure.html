@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html  lang="en" ng-app="myApp">
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>MJGE Account</title>
+    <!-- Favicon-->
+    <!-- Favicon-->
+   <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <!-- Bootstrap Core Css -->
+    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Waves Effect Css -->
+    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
+    <!-- Animation Css -->
+    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
+    <!-- Preloader Css -->
+    <link href="plugins/material-design-preloader/md-preloader.css" rel="stylesheet" />
+    <!-- JQuery DataTable Css -->
+    <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- Colorpicker Css -->
+    <link href="plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
+    <!-- Dropzone Css -->
+    <link href="plugins/dropzone/dropzone.css" rel="stylesheet">
+    <!-- Custom Css -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="css/themes/all-themes.css" rel="stylesheet" />
+    <!-- Bootstrap Select Css -->
+    <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <script src="js/angular.min.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="conver/html2canvas.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/toastr.css">
+    <script src="js/toastr.js"></script>
+    <style>
+      .red{
+      color:red;
+      }
+      .green{
+      color:green;
+      }
+    </style>
+  </head>
+  <body class="theme-indigo"  ng-controller="myCtrl">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+      <div class="loader">
+        <div class="md-preloader pl-size-md">
+          <svg viewbox="0 0 75 75">
+            <circle cx="37.5" cy="37.5" r="33.5" class="pl-red" stroke-width="4" />
+          </svg>
+        </div>
+        <p>Please wait...</p>
+      </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <div class="search-icon">
+        <i class="material-icons">search</i>
+      </div>
+      <input type="text" placeholder="START TYPING...">
+      <div class="close-search">
+        <i class="material-icons">close</i>
+      </div>
+    </div>
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+          <a href="javascript:void(0);" class="bars"></a>
+          <a class="navbar-brand" href="index.html">MJGE Account</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <!-- Call Search -->
+            <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
+            <!-- #END# Call Search -->
+            <!-- #END# Tasks -->
+            <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="modal fade in" id="defaultModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header  bg-blue-grey">
+            <div class="media">
+              <div class="media-body" style=" color:#ffffff;">
+                <h4 class="modal-title">{{ college }}</h4>
+                (Affiliated to Durg Vishwa Vidyalaya, Durg - Chhattisgarh)
+                <p>
+                  Kohka Junwani Road, Infront of C.S.E.B.Substation,
+                </p>
+                <p>Kohka, Bhilai(C.G.) Phone No.: 0788-2295044, 2295033.
+                </p>
+              </div>
+              <div class="media-right">
+                <a href="javascript:void(0);">
+                <img class="media-object" src="images/logo.png" width="100" height="80">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="row clearfix">
+                <h3 style="color: black; margin: 10px;">Academic Details:</h3><br>
+                
+              <div class="col-md-6" >
+                <b>College</b>
+                <div class="input-group">
+                  <span class="input-group-addon" >
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line" style="width: 100%;">
+                    <select   style="width:100%;" id="college_id" ng-model="college_name" class="form-control form-control-sm" >
+							<option data-ng-repeat="x in College " value="{{x.college_id}}">{{x.college_name}}</option>
+					</select>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-6" >
+                <b>Course Type</b>
+                <div class="input-group">
+                  <span class="input-group-addon" >
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line" style = "width: 100%;" >
+                   <select  ng-model="subject_name"  class="form-control form-control-sm" >
+			  	    <option data-ng-repeat="x in student_subjects  | filter:college_name " value="{{x.subject_id}}">{{x.subject_name}}</option>
+			  	  </select>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-6" >
+                <b>Course</b>
+                <div class="input-group" >
+                  <span class="input-group-addon" >
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line"style = "width: 100%;" >
+                   <select   ng-model="course_type_name"    class="form-control form-control-sm"  >
+    		  	    <option data-ng-repeat="x in student_course_type  | filter:subject_name " value="{{x.course_type_id}}">{{x.course_type_name}}</option>
+    		  	  	</select>
+                  </div>
+                </div>
+              </div>
+              
+             <div class="col-md-6" >
+                <b>Subjects</b>
+                <div class="input-group">
+                  <span class="input-group-addon" >
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line"style = "width: 100%;" >
+                    <select  ng-model="course_name"     class="form-control form-control-sm"  >
+    		  	    <option data-ng-repeat="x in student_course  | filter:course_type_name " value="{{x.course_id}}">{{x.course_name}}</option>
+    		  	   </select>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                 <b> Semester/Year</b>
+                  <div class="input-group">
+                  <span class="input-group-addon" >
+                  <i class="material-icons">receipt</i>
+                  </span>
+                    <div class="form-line"style = "width: 100%;" >
+                   <select class="form-control form-control-sm" ng-model="current_class" id="my-select" >
+                    <option value="All">All</option>
+                            <option value="First Year">First Year</option>
+                            <option value="Second Year">Second Year</option>
+                            <option value="Third Year">Third Year</option>
+                            <option value="Fourth Year">Fourth Year</option>
+                            
+                            <option value="First Semester">First Semester</option>
+                            <option value="Second Semester">Second Semester</option>
+                            <option value="Third Semester">Third Semester</option>
+                            <option value="Fourth Semester">Fourth Semester</option>
+                            <option value="Fifth Semester">Fifth Semester</option>
+                            <option value="Sixth Semester">Sixth Semester</option>
+                            <option value="Seventh Semester">Seventh Semester</option>
+                            <option value="Eighth Semester">Eighth Semester</option>
+                   </select>
+                   </div>
+                 </div>
+               </div>
+              
+              </div>
+              
+              <!--<div class="col-md-6" style = "width: 100%;">-->
+              <!--  <b>Department</b>-->
+              <!--  <div class="input-group"style = "width: 100%;" >-->
+              <!--    <span class="input-group-addon" >-->
+              <!--    <i class="material-icons">receipt</i>-->
+              <!--    </span>-->
+              <!--    <div class="form-line"style = "width: 100%;" >-->
+              <!--      <select class="dropdown-toggle btn-default" ng-model="departments" style = "width: 100%;">-->
+              <!--          <option ng-repeat="x1 in department" value="{{x1.course_type_id}}">{{x1.course_name}} {{x1.course_type_name}}</option>-->
+              <!--        </select>-->
+              <!--    </div>-->
+              <!--  </div>-->
+              <!--</div>-->
+              
+              
+           <div class="row clearfix">
+               
+               <h3 style="color: black; margin: 10px;">Fee Details:</h3><br>
+              
+              <div class="col-md-6">
+                <b>Tuition Fee</b>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line">
+                    <input type="number" class="form-control"  ng-model="tution_fee"  >
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <b>Caution Money Charges</b>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line">
+                    <input type="number" class="form-control"  ng-model="caution_fee"  >
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <b>College Magazine Charges</b>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line">
+                    <input type="number" class="form-control"  ng-model="magazine_fee"  >
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <b>University Fee</b>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line">
+                    <input type="number" class="form-control"  ng-model="university_fee"  >
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <b>Sports Fee</b>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line">
+                    <input type="number" class="form-control"  ng-model="sport_fee"  >
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <b>Library Fee</b>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line">
+                    <input type="number" class="form-control"  ng-model="library_fee"  >
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <b>Prospectus</b>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line">
+                    <input type="number" class="form-control"  ng-model="prospectus"  >
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <b>Hostel fee</b>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line">
+                    <input type="number" class="form-control"  ng-model="hostel_fee"  >
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <b>Others</b>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line">
+                    <input type="number" class="form-control"  ng-model="other" >
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <b>Forwarding Charge</b>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line">
+                    <input type="number" class="form-control"  ng-model="forwarding_charge_fee" >
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <b>Total Fees</b>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line">
+                  <p> {{ forwarding_charge_fee + other + hostel_fee +prospectus + library_fee +sport_fee + university_fee + magazine_fee +caution_fee + tution_fee}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <div class="modal-footer">
+            <script>
+              $(document).ready(function(){
+              
+                  
+              var element = $("#defaultModal"); // global variable
+              var getCanvas; // global variable
+               
+                  $("#btn-Preview-Image").on('click', function () {
+                       html2canvas(element, {
+                       onrendered: function (canvas) {
+                              $("#previewImage").append(canvas);
+                              getCanvas = canvas;
+                           }
+                       });
+                  });
+              
+                  $("#btn-Convert-Html2Image").on('click', function () {
+                  var imgageData = getCanvas.toDataURL("image/png");
+                  // Now browser starts downloading it instead of just showing it
+                  var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+                  $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
+                  });
+              
+              });
+              
+            </script>
+            <script type="text/javascript">
+              $(function(){	
+                  //here is the hero, after the capture button is clicked
+                  //he will take the screen shot of the div and save it as image.
+                  $('#capture').click(function(){
+              
+                      swal("Loading...");
+                      //get the div content
+                      div_content = document.querySelector("#defaultModal")
+                      //make it as html5 canvas
+                      html2canvas(div_content).then(function(canvas) {
+                          //change the canvas to jpeg image
+                          data = canvas.toDataURL('image/jpeg');
+                          
+                          //then call a super hero php to save the image
+                          save_img(data);
+                      });
+                  });			
+              });
+              
+              
+              //to save the canvas image
+              function save_img(data){
+                  //ajax method.
+                  $.post('conver/save_jpg.php', {data: data}, function(res){
+                      //if the file saved properly, trigger a popup to the user.
+                      if(res != ''){
+                         // yes = confirm('File saved in output folder, click ok to see it!');
+                         // if(yes){
+                            //  location.href ='/Account/conver/output/'+res+'.jpg';
+                              window.open('/Account/conver/output/'+res+'.jpg','_blank');
+                              swal.close();
+                         // }
+                      }
+                      else{
+                          alert('something wrong');
+                      }
+                  });
+              }
+            </script>
+            <button type="button" ng-click="Submit()" class="btn bg-green waves-effect" >
+            <i class="material-icons">verified_user</i><label for="no">Save</label> 
+            </button>
+            <!--<button type="button" ng-click="Reject_remarks_sts()"  class="btn bg-red waves-effect" data-toggle="modal" data-target="#defaultModalApprove" >-->
+            <!--<i class="material-icons">cancel</i> <label for="no"> Reject</label> -->
+            <!--</button>-->
+            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade in" id="defaultModal1" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header  bg-blue-grey">
+              <div class="media">
+                <div class="media-body" style=" color:#ffffff;">
+                  <h4 class="modal-title">{{ college }}</h4>
+                  (Affiliated to Durg Vishwa Vidyalaya, Durg - Chhattisgarh)
+                  <p>
+                    Kohka Junwani Road, Infront of C.S.E.B.Substation,
+                  </p>
+                  <p>Kohka, Bhilai(C.G.) Phone No.: 0788-2295044, 2295033.
+                  </p>
+                </div>
+                <div class="media-right">
+                  <a href="javascript:void(0);">
+                  <img class="media-object" src="images/logo.png" width="100" height="80">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="modal-body">
+                
+            <div class="row clearfix">
+                <h3 style="color: black; margin: 10px;">Academic Details:</h3><br>
+                
+              <div class="col-md-6" >
+                <b>College</b>
+                <div class="input-group">
+                  <span class="input-group-addon" >
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line" style="width: 100%;">
+                    <select   style="width:100%;" id="college_id1" ng-model="college_name1" class="form-control form-control-sm" disabled>
+							<option data-ng-repeat="x in College " value="{{x.college_id}}">{{x.college_name}}</option>
+					</select>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-6" >
+                <b>Course Type</b>
+                <div class="input-group">
+                  <span class="input-group-addon" >
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line" style = "width: 100%;" >
+                   <select  ng-model="subject_name1"  class="form-control form-control-sm" disabled>
+			  	    <option data-ng-repeat="x in student_subjects  | filter:college_name " value="{{x.subject_id}}">{{x.subject_name}}</option>
+			  	  </select>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-6" >
+                <b>Course</b>
+                <div class="input-group" >
+                  <span class="input-group-addon" >
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line"style = "width: 100%;" >
+                   <select   ng-model="course_type_name1"    class="form-control form-control-sm"  disabled>
+    		  	    <option data-ng-repeat="x in student_course_type  | filter:subject_name " value="{{x.course_type_id}}">{{x.course_type_name}}</option>
+    		  	  	</select>
+                  </div>
+                </div>
+              </div>
+              
+             <div class="col-md-6" >
+                <b>Subjects</b>
+                <div class="input-group">
+                  <span class="input-group-addon" >
+                  <i class="material-icons">receipt</i>
+                  </span>
+                  <div class="form-line"style = "width: 100%;" >
+                    <select  ng-model="course_name1"     class="form-control form-control-sm"  disabled>
+    		  	    <option data-ng-repeat="x in student_course  | filter:course_type_name " value="{{x.course_id}}">{{x.course_name}}</option>
+    		  	   </select>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                 <b> Semester/Year</b>
+                  <div class="input-group">
+                  <span class="input-group-addon" >
+                  <i class="material-icons">receipt</i>
+                  </span>
+                    <div class="form-line"style = "width: 100%;" >
+                   <select class="form-control form-control-sm" ng-model="current_class1" id="my-select1" disabled>
+                    <option value="All">All</option>
+                            <option value="First Year">First Year</option>
+                            <option value="Second Year">Second Year</option>
+                            <option value="Third Year">Third Year</option>
+                            <option value="Fourth Year">Fourth Year</option>
+                            
+                            <option value="First Semester">First Semester</option>
+                            <option value="Second Semester">Second Semester</option>
+                            <option value="Third Semester">Third Semester</option>
+                            <option value="Fourth Semester">Fourth Semester</option>
+                            <option value="Fifth Semester">Fifth Semester</option>
+                            <option value="Sixth Semester">Sixth Semester</option>
+                            <option value="Seventh Semester">Seventh Semester</option>
+                            <option value="Eighth Semester">Eighth Semester</option>
+                   </select>
+                   </div>
+                 </div>
+               </div>
+              
+              </div>
+   
+            <div class="row clearfix">
+
+                <div class="col-md-6">
+                  <b>Tuition Fee</b>
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                    <i class="material-icons">receipt</i>
+                    </span>
+                    <div class="form-line">
+                      <input type="number" class="form-control" id="tution_fee1" ng-model="tution_fee1"  >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <b>Caution Money Charges</b>
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                    <i class="material-icons">receipt</i>
+                    </span>
+                    <div class="form-line">
+                      <input type="number" class="form-control" id="caution_fee1" ng-model="caution_fee1"  >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <b>College Magazine Charges</b>
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                    <i class="material-icons">receipt</i>
+                    </span>
+                    <div class="form-line">
+                      <input type="number" class="form-control" id="magazine_fee1" ng-model="magazine_fee1"  >
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-md-6">
+                  <b>University Fee</b>
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                    <i class="material-icons">receipt</i>
+                    </span>
+                    <div class="form-line">
+                      <input type="number" class="form-control" id="university_fee1" ng-model="university_fee1"  >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <b>Sports Fee</b>
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                    <i class="material-icons">receipt</i>
+                    </span>
+                    <div class="form-line">
+                      <input type="number" class="form-control"  id="sport_fee1" ng-model="sport_fee1"  >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <b>Library Fee</b>
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                    <i class="material-icons">receipt</i>
+                    </span>
+                    <div class="form-line">
+                      <input type="number" class="form-control" id="library_fee1"  ng-model="library_fee1"  >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <b>Prospectus</b>
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                    <i class="material-icons">receipt</i>
+                    </span>
+                    <div class="form-line">
+                      <input type="number" class="form-control" id="prospectus1"  ng-model="prospectus1"  >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <b>Hostel fee</b>
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                    <i class="material-icons">receipt</i>
+                    </span>
+                    <div class="form-line">
+                      <input type="number" class="form-control" id="hostel_fee1" ng-model="hostel_fee1"  >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <b>Others</b>
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                    <i class="material-icons">receipt</i>
+                    </span>
+                    <div class="form-line">
+                      <input type="number" class="form-control"  id="other1" ng-model="other1"  >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <b>Forwarding Charge</b>
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                    <i class="material-icons">receipt</i>
+                    </span>
+                    <div class="form-line">
+                      <input type="number" class="form-control" id="forwarding_charge_fee1" ng-model="forwarding_charge_fee1" >
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-md-12">
+                  <b>Total Fees</b>
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                    <i class="material-icons">receipt</i>
+                    </span>
+                    <div class="form-line">
+                     <p>{{ forwarding_charge_fee1+ other1 + hostel_fee1 +prospectus1 + library_fee1 +sport_fee1 + university_fee1 + magazine_fee1 +caution_fee1 + tution_fee1}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="modal-footer">
+              <script>
+                $(document).ready(function(){
+                
+                    
+                var element = $("#defaultModal"); // global variable
+                var getCanvas; // global variable
+                 
+                    $("#btn-Preview-Image").on('click', function () {
+                         html2canvas(element, {
+                         onrendered: function (canvas) {
+                                $("#previewImage").append(canvas);
+                                getCanvas = canvas;
+                             }
+                         });
+                    });
+                
+                    $("#btn-Convert-Html2Image").on('click', function () {
+                    var imgageData = getCanvas.toDataURL("image/png");
+                    // Now browser starts downloading it instead of just showing it
+                    var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+                    $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
+                    });
+                
+                });
+                
+              </script>
+              <script type="text/javascript">
+                $(function(){	
+                    //here is the hero, after the capture button is clicked
+                    //he will take the screen shot of the div and save it as image.
+                    $('#capture').click(function(){
+                
+                        swal("Loading...");
+                        //get the div content
+                        div_content = document.querySelector("#defaultModal")
+                        //make it as html5 canvas
+                        html2canvas(div_content).then(function(canvas) {
+                            //change the canvas to jpeg image
+                            data = canvas.toDataURL('image/jpeg');
+                            
+                            //then call a super hero php to save the image
+                            save_img(data);
+                        });
+                    });			
+                });
+                
+                
+                //to save the canvas image
+                function save_img(data){
+                    //ajax method.
+                    $.post('conver/save_jpg.php', {data: data}, function(res){
+                        //if the file saved properly, trigger a popup to the user.
+                        if(res != ''){
+                           // yes = confirm('File saved in output folder, click ok to see it!');
+                           // if(yes){
+                              //  location.href ='/Account/conver/output/'+res+'.jpg';
+                                window.open('/Account/conver/output/'+res+'.jpg','_blank');
+                                swal.close();
+                           // }
+                        }
+                        else{
+                            alert('something wrong');
+                        }
+                    });
+                }
+              </script>
+              <button type="button" ng-click="Update()" class="btn bg-green waves-effect" >
+              <i class="material-icons">verified_user</i> <label for="no">Update</label> 
+              </button>
+              <!--<button type="button" ng-click="Reject_remarks_sts()"  class="btn bg-red waves-effect" data-toggle="modal" data-target="#defaultModalApprove" >-->
+              <!--<i class="material-icons">cancel</i> <label for="no"> Reject</label> -->
+              <!--</button>-->
+              <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- #Top Bar -->
+    <section>
+      <!-- Left Sidebar -->
+      <aside id="leftsidebar" class="sidebar">
+        <!-- User Info -->
+        <div class="user-info">
+          <div class="image">
+            <img src="images/logo.png" width="48" height="48" alt="User" />
+          </div>
+          <div class="info-container">
+            <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{user_name}} ({{user_id}}) </div>
+            <div class="email">info@mjge.in </div>
+            <div class="btn-group user-helper-dropdown">
+              <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+              <ul class="dropdown-menu pull-right">
+                <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                <li role="seperator" class="divider"></li>
+                <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
+                <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
+                <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
+                <li role="seperator" class="divider"></li>
+                <li><a href="javascript:void(0);" ng-click="logout()"  ><i class="material-icons">input</i>Sign Out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- #User Info -->
+        <!-- Menu -->
+        <div class="menu">
+          <ul class="list">
+            <li class="header">MAIN NAVIGATION</li>
+            <li>
+              <a href="index.html">
+              <i class="material-icons">home</i>
+              <span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a  ng-click="Req_item()" data-toggle="modal" data-target="#defaultModal">
+              <i class="material-icons">library_books</i>
+              <span>Add New Fee Structure</span>
+              </a>
+            </li>
+            <ul class="ml-menu">
+              <li>
+                <a href="pages/ui/alerts.html">Alerts</a>
+              </li>
+              <li>
+                <a href="pages/ui/animations.html">Animations</a>
+              </li>
+              <li>
+                <a href="pages/ui/badges.html">Badges</a>
+              </li>
+              <li>
+                <a href="pages/ui/breadcrumbs.html">Breadcrumbs</a>
+              </li>
+              <li>
+                <a href="pages/ui/buttons.html">Buttons</a>
+              </li>
+              <li>
+                <a href="pages/ui/collapse.html">Collapse</a>
+              </li>
+              <li>
+                <a href="pages/ui/colors.html">Colors</a>
+              </li>
+              <li>
+                <a href="pages/ui/dialogs.html">Dialogs</a>
+              </li>
+              <li>
+                <a href="pages/ui/icons.html">Icons</a>
+              </li>
+              <li>
+                <a href="pages/ui/labels.html">Labels</a>
+              </li>
+              <li>
+                <a href="pages/ui/list-group.html">List Group</a>
+              </li>
+              <li>
+                <a href="pages/ui/media-object.html">Media Object</a>
+              </li>
+              <li>
+                <a href="pages/ui/modals.html">Modals</a>
+              </li>
+              <li>
+                <a href="pages/ui/notifications.html">Notifications</a>
+              </li>
+              <li>
+                <a href="pages/ui/pagination.html">Pagination</a>
+              </li>
+              <li>
+                <a href="pages/ui/preloaders.html">Preloaders</a>
+              </li>
+              <li>
+                <a href="pages/ui/progressbars.html">Progress Bars</a>
+              </li>
+              <li>
+                <a href="pages/ui/range-sliders.html">Range Sliders</a>
+              </li>
+              <li>
+                <a href="pages/ui/sortable-nestable.html">Sortable & Nestable</a>
+              </li>
+              <li>
+                <a href="pages/ui/tabs.html">Tabs</a>
+              </li>
+              <li>
+                <a href="pages/ui/thumbnails.html">Thumbnails</a>
+              </li>
+              <li>
+                <a href="pages/ui/tooltips-popovers.html">Tooltips & Popovers</a>
+              </li>
+              <li>
+                <a href="pages/ui/waves.html">Waves</a>
+              </li>
+            </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- #Menu -->
+        <!-- Footer -->
+        <div class="legal">
+          <div class="copyright">
+            &copy; 2020 <a href="javascript:void(0);">MJGE</a>.
+          </div>
+          <div class="version">
+            <b>Version: </b> 1.0.0
+          </div>
+        </div>
+        <!-- #Footer -->
+      </aside>
+      <!-- #END# Left Sidebar -->
+    </section>
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Exportable Table -->
+        <div class="row clearfix">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+              <div class="header">
+                <h2>
+                  Fee Structure Table
+                </h2>
+                <button type="button" ng-click="Req_item()" data-toggle="modal" data-target="#defaultModal" class="btn btn-default waves-effect pull-right">
+                <i class="material-icons">add</i> <label for="no">Add New Fee Structure</label> 
+                </button>
+              </div>
+              <div class="body">
+                <a class="btn btn-default waves-effect " type="button" id="downloadLink" onclick="FeeexportF(this)">Export to excel</a>
+                <button class="btn btn-default waves-effect " type="button"  onclick="Feeimprimir()">Print</button>
+                <script>
+                  function Feeimprimir() {
+                  var divToPrint=document.getElementById("fee_structure");
+                  newWin= window.open("");
+                  newWin.document.write(divToPrint.outerHTML);
+                  newWin.print();
+                  newWin.close();
+                  }
+                  
+                  function FeeexportF(elem) {
+                  var table = document.getElementById("fee_structure");
+                  var html = table.outerHTML;
+                  var url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url 
+                  elem.setAttribute("href", url);
+                  elem.setAttribute("download", "Students.xls"); // Choose the file name
+                  return false;
+                  }
+                  
+                  
+                  
+                </script>
+                <div  style="overflow-x:auto; ">
+                  <table id="Requisition"  style="overflow-x:auto; font-size:12px" class="table table-bordered table-striped table-hover dataTable ">
+                    <thead>
+                      <tr>
+                        <th>Action</th>
+                        <th>S.No.</th>
+                        <th>Department</th>
+                        <th>Tution Fee</th>
+                        <th>Caution Fee</th>
+                        <th>Magazine Fee</th>
+                        <th>University Fee</th>
+                        <th>Sports Fee</th>
+                        <th>Library Fee</th>
+                        <th>Prospectust Fee</th>
+                        <th>Hostel Fee</th>
+                        <th>Other Fee</th>
+                        <th>Forwarding Fee</th>
+                        <th>Total Fee</th>
+                      </tr>
+                    </thead>
+                    <tbody  data-ng-repeat="D in Requi_details" >
+                      <tr   style="cursor: pointer; font-size:12px;"  ng-class="{'green': D.admin_approved == 'Approved', 'red': D.admin_approved == 'Rejected'}"  >
+                        <td>
+                          <span ng-click = "Requisition_data($index)" data-toggle="modal" data-target="#defaultModal1"
+                            aria-controls="collapseExampleEdit" class="tag label  bg-teal waves-effect" style="font-size:12px;">Edit <i class="material-icons" style="font-size:12px;">mode_edit</i></span>
+                            
+                          <span ng-click = "fee_DeteAll($index)"  class="tag label  bg-red waves-effect" style="font-size:12px;">Delete <i class="material-icons" style="font-size:12px;">delete_forever</i></span>
+                          
+                          <!--<span  ng-click = "Requisition_Print_All($index)" class="tag label  bg-blue waves-effect" style="font-size:12px;">Print <i class="material-icons" style="font-size:12px;">print</i></span>-->
+                          
+                        </td>
+                        <td > {{$index+1}} </td>
+                        <td><span class="badge bg-teal ng-binding"> {{D.college_name}} </span><br> 
+                        <span class="badge bg-red ng-binding">{{D.subject_name}} </span> <br> 
+                        <span class="badge bg-pink ng-binding">{{D.course_type_name}} </span> <br> 
+                        <span class="badge bg-orange ng-binding">{{D.course_name}}</span></td>
+                        <td> {{D.tution_fee}} ₹</td>
+                        <td> {{D.caution_fee}} ₹</td>
+                        <td> {{D.magazine_fee}} ₹</td>
+                        <td> {{D.university_fee}} ₹</td>
+                        <td> {{D.sports_fee}} ₹</td>
+                        <td> {{D.library_fee}} ₹</td>
+                        <td> {{D.prospectus }} ₹</td>
+                        <td> {{D.hostel_fee}} ₹</td>
+                        <td> {{D.others}} ₹</td>
+                        <td> {{D.forwarding_fee}} ₹</td>
+
+                        <td style="text-align:right;"> {{D.tot | number : 3 }} ₹</td>
+                        <td style="text-align:left; color:green; " >{{D.admin_remarks}}</td >
+                        <!--<td >-->
+                        <!--  <span class="badge"  ng-class="{'bg-gray': D.admin_approved == 'Pending', 'bg-green': D.admin_approved == 'Approved', 'bg-red': D.admin_approved == 'Rejected'}">Requisition {{D.admin_approved}}</span>-->
+                        <!--  <span class="badge"  ng-class="{'bg-gray': D.q_approved == 'Pending', 'bg-green': D.q_approved == 'Approved', 'bg-red': D.q_approved == 'Rejected'}" >Quotation {{D.q_approved }}</span>-->
+                        <!--  <span class="badge"  ng-class="{'bg-gray': D.p_approved == 'Pending', 'bg-green': D.p_approved == 'Approved', 'bg-red': D.p_approved == 'Rejected'}" >PO {{D.p_approved }}</span>-->
+                        <!--  <span class="badge"   ng-class="{'bg-gray': D.delivered_status == '','bg-green': D.delivered_status == 'Yes'}" >Receive</span>-->
+                        <!--  <span class="badge"  ng-class="{'bg-gray': D.verify_status == '','bg-green': D.verify_status == 'Complete' }" >Verify</span>-->
+                          <!--<button type="button" ng-click = "Requisition_data($index)" data-toggle="modal" data-target="#defaultModal"-->
+                          <!--    aria-controls="collapseExampleEdit"  class="btn btn-default btn-circle waves-effect waves-circle waves-float">-->
+                          <!--    <i class="material-icons">mode_edit</i>-->
+                          <!--</button>-->
+                          <!--<button type="button" ng-click = "Requisition_DeteAll($index)" class="btn bg-red btn-circle waves-effect waves-circle waves-float">-->
+                          <!--                                        <i class="material-icons">delete_forever</i>-->
+                          <!--                                    </button>-->
+                          <!-- <button type="button" ng-click = "Requisition_Print_All($index)" class="btn bg-blue btn-circle waves-effect waves-circle waves-float">-->
+                          <!--                                        <i class="material-icons">print</i>-->
+                          <!--                                    </button>                                   
+                        </td>-->
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div style='padding: 10px 20px 0px; border-top: dotted 1px #CCC; '>
+                  <strong >Page {{ page_no_ }} of {{ total_no_of_pages_ }} </strong>
+                  <strong >Total Records: {{ tot_records }} </strong>
+                </div>
+                <nav style='  cursor: pointer; ' aria-label="Page navigation clearfix w-50">
+                  <ul class="pagination float-right mt-5">
+                    <li    ng-repeat=" opt in opts" class='page-item {{opt.status}}' >
+                      <a ng-click="callList(opt.id)" ng-class="" class='page-link text-dark'> {{opt.name}}</a> 
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- #END# Exportable Table -->
+      </div>
+    </section>
+    <!-- Jquery Core Js -->
+    <script src="app/fee_structure.js"></script>
+    <!-- Jquery Core Js -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap Core Js -->
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+    <!-- Slimscroll Plugin Js -->
+    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <!-- Waves Effect Plugin Js -->
+    <script src="plugins/node-waves/waves.js"></script>
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+    <!-- Custom Js -->
+    <script src="js/admin.js"></script>
+    <script src="js/pages/tables/jquery-datatable.js"></script>
+    <script src="js/pages/forms/advanced-form-elements.js"></script>
+    <script src="js/pages/ui/modals.js"></script>
+    <!-- Demo Js -->
+    <script src="js/demo.js"></script>
+  </body>
+</html>

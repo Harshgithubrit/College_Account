@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Welcome To | MJGE Account</title>
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Preloader Css -->
+    <link href="plugins/material-design-preloader/md-preloader.css" rel="stylesheet" />
+
+    <!-- Morris Chart Css-->
+    <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="css/themes/all-themes.css" rel="stylesheet" />
+
+
+    <script src="js/angular.min.js"></script>
+<script src="js/sweetalert.min.js"></script>
+
+
+<script src="js/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/toastr.css">
+<script src="js/toastr.js"></script>
+<style>
+      .red{
+      color:red;
+      }
+      .green{
+      color:green;
+      }
+
+
+      .modal{
+   overflow:auto !important;
+}
+</style>
+
+</head>
+
+<body class="theme-indigo"  ng-controller="myCtrl">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="md-preloader pl-size-md">
+                <svg viewbox="0 0 75 75">
+                    <circle cx="37.5" cy="37.5" r="33.5" class="pl-red" stroke-width="4" />
+                </svg>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar 
+    
+    -->
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="index.html">MJGE Account</a>
+            </div>
+           
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="image">
+                    <img src="images/user.png" width="48" height="48" alt="User" />
+                </div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{user_name}} ({{user_id}}) </div>
+                    <div class="email">info@mjge.in </div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                            <li role="seperator" class="divider"></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
+                            <li role="seperator" class="divider"></li>
+                            <li><a href="javascript:void(0);"  ng-click="logout()" ><i class="material-icons">input</i>Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="active">
+                        <a ng-click="GOBACK()">
+                            <i class="material-icons">home</i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    
+                    <!-- <li class="" data-toggle="modal" data-target="#defaultModalItem"  >-->
+                    <!--    <a href="javascript:void(0);" class="js-search" data-close="true">-->
+                    <!--        <i class="material-icons">toc</i>-->
+                    <!--        <span>Item</span>-->
+                    <!--    </a>-->
+                    <!--</li>-->
+
+                    <!--<li class="" data-toggle="modal" data-target="#defaultModal"  >-->
+                    <!--    <a href="javascript:void(0);" class="js-search" data-close="true">-->
+                    <!--        <i class="material-icons">receipt</i>-->
+                    <!--        <span>Student Fee</span>-->
+                    <!--    </a>-->
+                    <!--</li>-->
+
+                    <!--<li class="" >-->
+                    <!--    <a href="Requisition.html" class="js-search" data-close="true">-->
+                    <!--        <i class="material-icons">chrome_reader_mode</i>-->
+                    <!--        <span>Requisition</span>-->
+                    <!--    </a>-->
+                    <!--</li>-->
+                    <!--  <li class="" >-->
+                    <!--    <a href="Quotation.html" class="js-search" data-close="true">-->
+                    <!--        <i class="material-icons">view_list</i>-->
+                    <!--        <span>Quotation</span>-->
+                    <!--    </a>-->
+                    <!--</li>-->
+
+                    <!--<li class="" >-->
+                    <!--    <a href="Purchase_order.html" class="js-search" data-close="true">-->
+                    <!--        <i class="material-icons">view_list</i>-->
+                    <!--        <span>Purchase Order</span>-->
+                    <!--    </a>-->
+                    <!--</li>-->
+
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2021 <a href="javascript:void(0);">MJGE - Account</a>.
+                </div>
+                <div class="version">
+                    <b>Version: </b> 1.0.0
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+      
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2>Vendor</h2>
+            </div>
+            
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Vendor List
+                                <button type="button" data-toggle="collapse" data-target="#collapseExample_item" aria-expanded="false"
+                                  aria-controls="collapseExample" class="btn btn-default waves-effect pull-right">
+                                    <i class="material-icons">add</i> <label for="no"> Add Vendor</label> 
+                                </button>
+                                
+                                
+                                <small>Details</small> 
+                               
+                            </h2>
+                         
+                            
+                          
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                  <div class="col-md-8 ">
+                                    <div class="input-group">
+                                        <div class="form-line">
+                                             <input type="text"  (keydown.enter)="Itemonsearch()" ng-change="Itemonsearch()" ng-model="item_search" placeholder="Search Vendor">
+       
+                                        </div>
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">search</i>
+                                        </span>
+                                    </div>
+                                </div> 
+                                  <div class="col-md-4 ">
+                                                                  <a type="button" class="btn btn-gradient-success btn-sm pull-right" id="downloadLink" onclick="item_exportF(this)">Export to excel</a>
+  <button type="button" class="btn btn-gradient-success btn-sm pull-right"  onclick="item_imprimir()">Print</button>
+  </div>
+
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                   
+                                     <div class="form-group">
+
+
+              
+
+   <p ng-show="loading">Loading....</p>    <!-- Showing the status -->
+                      <p ng-hide="loading">{{Lstatus}}</p>
+
+
+  
+                          
+                              <div class="card collapse" id="collapseExample_item" >
+                                                            <div class="content">
+                                                                <div class="  bg-blue-grey">
+                                                                    
+                                                                       
+                                                                        <div class="body" style=" color:#ffffff;">
+                                                                            <h4 class="title">Add New
+                                                                              <button type="button" class="btn btn-link waves-effect pull-right"  data-toggle="collapse" data-target="#collapseExample_item" aria-expanded="false"
+                                                                    aria-controls="collapseExample_item">CLOSE</button>
+                                                                            </h4> 
+                                                                          
+                                                                        </div>
+                                                                        
+                                                                   
+                                                                    
+                                                                </div>
+                                        
+                                                                
+                                                                    
+                                                                <div class="body">
+                                                                
+                                                                    
+                                                                  <form class="">
+                                                                  <div class="row clearfix">
+                                                                    
+                                                                        <br>
+                                                                         <div class="row clearfix">
+                                                                         
+                                                                            
+                                
+                                                                                <div class="col-md-6">
+
+                                                                                <b>Vendor Category</b>
+                                                                                <div class="input-group">
+                                                                                <select class=" dropdown-toggle btn-default"  ng-model="categoryi" >
+                   
+                                                                                    <option value="B2C (Business to Consumer)">B2C (Business to Consumer)</option>
+                   
+                                                                                    <option value="B2G (Business to Government)">B2G (Business to Government)</option>
+                   
+                                                                                    <option value="B2B (Business to Business)">B2B (Business to Business)</option>
+                                                                                </select>
+                                                                                </div>
+                                                                                </div>
+                                                                              <div class="col-md-6">
+                                                                                  
+                                                                                  <b>Provide</b>
+                                                                                <div class="input-group">
+                                    <div class="demo-radio-button">
+                                <input name="group1u"  ng-model="changedValu" value="Goods" type="radio" id="radio_1u" checked="">
+                                <label for="radio_1u">Goods</label>
+                                <input name="group1u"  ng-model="changedValu" value="Service" type="radio" id="radio_2u">
+                                <label for="radio_2u">Service</label>
+                               </div>
+                                </div>
+                                
+                                                                                </div>
+                                                                                
+                                                                                <div class="col-md-6">
+                                                                                <b>Contact Person First Name</b>
+                                                                                <div class="input-group">
+                                                                                    <span class="input-group-addon">
+                                                                                        <i class="material-icons">person</i>
+                                                                                    </span>
+                                                                                    <div class="form-line">
+                                                                                        <input  type="text" ng-model="first_name" class="form-control " placeholder="">
+                                                                                    
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
+                                                                               </div>
+                                                                               
+                                                                               
+                                                                               <div class="col-md-6">
+                                                                                <b>Last Name</b>
+                                                                                <div class="input-group">
+                                                                                   
+                                                                                    <div class="form-line">
+                                                                                        <input  type="text" ng-model="last_name" class="form-control " placeholder="">
+                                                                                    
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
+                                                                                </div>
+                                                                                
+                                                                               <div class="col-md-12">
+                                                                                <b>Vendor Name</b>
+                                                                                <div class="input-group">
+                                                                                    <span class="input-group-addon">
+                                                                                        <i class="material-icons">domain</i>
+                                                                                    </span>
+                                                                                    <div class="form-line">
+                                                                                        <textarea  ng-model="vendor" class="form-control " placeholder=""></textarea>
+                                                                                    
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
+                                                                               </div>
+                                                                               
+                                                                               
+                                                                               <div class="col-md-12">
+                                                                                <b>Address</b>
+                                                                                <div class="input-group">
+                                                                                    <span class="input-group-addon">
+                                                                                        <i class="material-icons">domain</i>
+                                                                                    </span>
+                                                                                    <div class="form-line">
+                                                                                        <textarea  ng-model="address" class="form-control " placeholder=""></textarea>
+                                                                                    
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
+                                                                               </div>
+                                                                               
+                                                                               
+                                                                               <div class="col-md-6">
+                                                                                <b>Email</b>
+                                                                                <div class="input-group">
+                                                                                    <span class="input-group-addon">
+                                                                                        <i class="material-icons">mail</i>
+                                                                                    </span>
+                                                                                    <div class="form-line">
+                                                                                        <input  type="text" ng-model="email" class="form-control " placeholder="">
+                                                                                    
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
+                                                                               </div>
+                                                                               
+                                                                                <div class="col-md-6">
+                                                                                <b>Website</b>
+                                                                                <div class="input-group">
+                                                                                    <span class="input-group-addon">
+                                                                                        <i class="material-icons">language</i>
+                                                                                    </span>
+                                                                                    <div class="form-line">
+                                                                                        <input  type="text" ng-model="website" class="form-control " placeholder="">
+                                                                                    
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
+                                                                               </div>
+                                                                               
+                                                                               
+                                                                               <div class="col-md-6">
+                                                                                <b>Mobile Number</b>
+                                                                                <div class="input-group">
+                                                                                    <span class="input-group-addon">
+                                                                                        <i class="material-icons">phone</i>
+                                                                                    </span>
+                                                                                    <div class="form-line">
+                                                                                        <input  type="text" ng-model="contact" class="form-control " placeholder="">
+                                                                                    
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
+                                                                               </div>
+                                                                               
+                                                                               <div class="col-md-6">
+                                                                                <b>Vendor Contact</b>
+                                                                                <div class="input-group">
+                                                                                    <span class="input-group-addon">
+                                                                                        <i class="material-icons">phone</i>
+                                                                                    </span>
+                                                                                    <div class="form-line">
+                                                                                        <input  type="text" ng-model="vcontact" class="form-control " placeholder="">
+                                                                                    
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
+                                                                               </div>
+                                                                               
+                                                                               
+                        
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    </form>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="submit" class="btn btn-link waves-effect"  data-toggle="collapse" data-target="#collapseExample_item" aria-expanded="false"
+                                                                    aria-controls="collapseExample_item" ng-click="save_item_name()">SAVE</button>
+                                                                    <button type="button" class="btn btn-link waves-effect" data-toggle="collapse" data-target="#collapseExample_item" aria-expanded="false"
+                                                                    aria-controls="collapseExample_item">CLOSE</button>
+                                                                </div>
+                                                             
+                                        
+                                        
+                                        
+                                                            </div>
+                                                        </div>
+                          
+                       
+                   
+                  
+
+
+  
+                    <div  style="width: 100%; overflow: auto; height:500px;" >
+                    
+                      <table id="item_table" class="table table-striped " style="cursor: hand; cursor: pointer;">
+                      <thead>
+                        <tr>
+                            <th> Action </th>
+                            <th> # </th>
+                          <th> Vandor </th>
+                          <th> Email </th>
+                          <th> Contact </th>
+                          <th> Contact Person </th>
+                          <th> Address </th>
+                        </tr>
+                      </thead>
+                      <tbody  ng-repeat="D in itemdetails">
+                        <tr >
+                         
+                          <td> 
+                                <button type="button"  data-toggle="modal" data-target="#defaultModalItemEdit" ng-click="onitem_select($index)"  class="btn btn-default btn-circle waves-effect waves-circle waves-float">
+                                    <i class="material-icons">edit</i>
+                                </button>
+                              </td>
+                          <td> {{$index+1}} </td>
+                          
+  
+                          <td> <b>{{D.company}}</b> </td>
+                          <td> {{D.vendor_email}} </td>
+                          <td> <span class="badge bg-pink ng-binding">{{D.vendor_contact}}</span> </td>
+                          <td> {{D.first_name}} {{D.last_name}} ({{D.person_contact}}) </td>
+                          <td> {{D.address}} </td>
+                           
+                        </tr>
+                          
+                        
+                      </tbody>
+                    </table>
+  
+                  </div>
+                  
+          <script>
+          
+
+function item_imprimir() {
+        var divToPrint=document.getElementById("item_table");
+        newWin= window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+    }
+          
+          function item_exportF(elem) {
+  var table = document.getElementById("item_table");
+  var html = table.outerHTML;
+  var url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url 
+  elem.setAttribute("href", url);
+  elem.setAttribute("download", "Item.xls"); // Choose the file name
+  return false;
+}
+          </script> 
+                                   
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+           </div>
+        </div>
+    </section>
+
+
+
+
+     <div class="modal fade in" id="defaultModalItemEdit" tabindex="-1" role="dialog" style="">
+        <div class="modal-dialog modal-md " role="document">
+            <div class="modal-content ">
+                <div class="modal-header  bg-blue-grey">
+                    <h4 class="modal-title" id="defaultModalLabel">Update Vendor</h4>
+                </div>
+                <div class="modal-body">
+                  
+
+
+                        <form class="">
+                                                                  <div class="row clearfix">
+                                                                    
+                                                                        <br>
+                                                                         <div class="row clearfix">
+                                                                         
+                                                                            
+                                
+                                                                                <div class="col-md-6">
+
+                                                                                <b>Vendor Category</b>
+                                                                                <div class="input-group">
+                                                                                <select class=" dropdown-toggle btn-default"  ng-model="categoryiu" >
+                   
+                                                                                    <option value="B2C (Business to Consumer)">B2C (Business to Consumer)</option>
+                   
+                                                                                    <option value="B2G (Business to Government)">B2G (Business to Government)</option>
+                   
+                                                                                    <option value="B2B (Business to Business)">B2B (Business to Business)</option>
+                                                                                </select>
+                                                                                </div>
+                                                                                </div>
+                                                                              <div class="col-md-6">
+                                                                                  
+                                                                                  <b>Provide</b>
+                                                                                <div class="input-group">
+                                    <div class="demo-radio-button">
+                                <input name="group1uu"  ng-model="changedValuu" value="Goods" type="radio" id="radio_1uu" checked="">
+                                <label for="radio_1uu">Goods</label>
+                                <input name="group1uu"  ng-model="changedValuu" value="Service" type="radio" id="radio_2uu">
+                                <label for="radio_2uu">Service</label>
+                               </div>
+                                </div>
+                                
+                                                                                </div>
+                                                                                
+                                                                                <div class="col-md-6">
+                                                                                <b>Contact Person First Name</b>
+                                                                                <div class="input-group">
+                                                                                    <span class="input-group-addon">
+                                                                                        <i class="material-icons">person</i>
+                                                                                    </span>
+                                                                                    <div class="form-line">
+                                                                                        <input  type="text" ng-model="first_nameu" class="form-control " placeholder="">
+                                                                                    
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
+                                                                               </div>
+                                                                               
+                                                                               
+                                                                               <div class="col-md-6">
+                                                                                <b>Last Name</b>
+                                                                                <div class="input-group">
+                                                                                   
+                                                                                    <div class="form-line">
+                                                                                        <input  type="text" ng-model="last_nameu" class="form-control " placeholder="">
+                                                                                    
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
+                                                                                </div>
+                                                                                
+                                                                               <div class="col-md-12">
+                                                                                <b>Vendor Name</b>
+                                                                                <div class="input-group">
+                                                                                    <span class="input-group-addon">
+                                                                                        <i class="material-icons">domain</i>
+                                                                                    </span>
+                                                                                    <div class="form-line">
+                                                                                        <textarea  ng-model="vendoru" class="form-control " placeholder=""></textarea>
+                                                                                    
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
+                                                                               </div>
+                                                                               
+                                                                               
+                                                                               <div class="col-md-12">
+                                                                                <b>Address</b>
+                                                                                <div class="input-group">
+                                                                                    <span class="input-group-addon">
+                                                                                        <i class="material-icons">domain</i>
+                                                                                    </span>
+                                                                                    <div class="form-line">
+                                                                                        <textarea  ng-model="addressu" class="form-control " placeholder=""></textarea>
+                                                                                    
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
+                                                                               </div>
+                                                                               
+                                                                               
+                                                                               <div class="col-md-6">
+                                                                                <b>Email</b>
+                                                                                <div class="input-group">
+                                                                                    <span class="input-group-addon">
+                                                                                        <i class="material-icons">mail</i>
+                                                                                    </span>
+                                                                                    <div class="form-line">
+                                                                                        <input  type="text" ng-model="emailu" class="form-control " placeholder="">
+                                                                                    
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
+                                                                               </div>
+                                                                               
+                                                                                <div class="col-md-6">
+                                                                                <b>Website</b>
+                                                                                <div class="input-group">
+                                                                                    <span class="input-group-addon">
+                                                                                        <i class="material-icons">language</i>
+                                                                                    </span>
+                                                                                    <div class="form-line">
+                                                                                        <input  type="text" ng-model="websiteu" class="form-control " placeholder="">
+                                                                                    
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
+                                                                               </div>
+                                                                               
+                                                                               
+                                                                               <div class="col-md-6">
+                                                                                <b>Mobile Number</b>
+                                                                                <div class="input-group">
+                                                                                    <span class="input-group-addon">
+                                                                                        <i class="material-icons">phone</i>
+                                                                                    </span>
+                                                                                    <div class="form-line">
+                                                                                        <input  type="text" ng-model="contactu" class="form-control " placeholder="">
+                                                                                    
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
+                                                                               </div>
+                                                                               
+                                                                               <div class="col-md-6">
+                                                                                <b>Vendor Contact</b>
+                                                                                <div class="input-group">
+                                                                                    <span class="input-group-addon">
+                                                                                        <i class="material-icons">phone</i>
+                                                                                    </span>
+                                                                                    <div class="form-line">
+                                                                                        <input  type="text" ng-model="vcontactu" class="form-control " placeholder="">
+                                                                                    
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
+                                                                               </div>
+                                                                               
+                                                                               
+                        
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    </form>
+                                                                                           
+                  
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link waves-effect" ng-click="itemupdate()" data-dismiss="modal">UPDATE</button>
+                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+       <!-- Jquery Core Js -->
+       <script src="app/vendor.js"></script>
+
+    <!-- Jquery Core Js -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="plugins/node-waves/waves.js"></script>
+
+    <!-- Jquery CountTo Plugin Js -->
+    <script src="plugins/jquery-countto/jquery.countTo.js"></script>
+
+    <!-- Morris Plugin Js -->
+    <script src="plugins/raphael/raphael.min.js"></script>
+    <script src="plugins/morrisjs/morris.js"></script>
+
+    <!-- ChartJs -->
+    <script src="plugins/chartjs/Chart.bundle.js"></script>
+
+    <!-- Flot Charts Plugin Js -->
+    <script src="plugins/flot-charts/jquery.flot.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.resize.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.pie.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.categories.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.time.js"></script>
+
+    <!-- Sparkline Chart Plugin Js -->
+    <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
+    <!-- Custom Js -->
+    <script src="js/admin.js"></script>
+    <script src="js/pages/index.js"></script>
+
+    <!-- Demo Js -->
+    <script src="js/demo.js"></script>
+</body>
+
+</html>

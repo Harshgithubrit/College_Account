@@ -1,0 +1,204 @@
+<?php
+   ob_start();
+   session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Account Login | M J GROUP OF EDUCATION</title>
+    <!-- Favicon
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+-->
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+ <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="css/style.css" rel="stylesheet">    <!-- Custom Css -->
+    <link href="css/connection.css" rel="stylesheet">
+
+    
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="./js./sweetalert.min.js"></script>
+
+	
+    <style>
+       html, body {height:100%;}
+html {display:table; width:100%;}
+body {display:table-cell; text-align:center; vertical-align:middle;}
+</style>
+</head>
+	
+   <body style="background-color:#acb8c7;"  ng-controller="myCtrl">
+
+
+    <div id="theme-orange" class="net_message">Slow Internet Connection.</div>
+    <div id="theme-red" class="net_message">No Internet Connection.</div>
+    <div id="theme-indigo" class="net_message">Back Online.</div>
+  
+
+
+
+            <div class="row" >
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    </div>
+                    
+                    
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+<div class="card" style="border-radius:15px !important; margin:10px;">
+     <div  style="background-image: url(''); background: rgba(black, 0.1);">
+
+     <div class="body">
+   
+                    <div class="row">
+               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                   <center>   <div class="">
+  
+  
+                   
+                    <img src="images/logo.png" width="50%" alt="User" />
+              
+        <div class="">
+            <h5><a href="http://mjge.in/">M J GROUP OF EDUCATION</a></h5><br>
+            <h4>Account<br>Login Panel</h4>
+        </div>
+        
+</div> 
+        </center>  </div>
+       
+                 
+                 
+                 
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                 <div class="body" >  
+                   <center>   <div class="">
+      <div class = "container form-signin">
+         
+
+
+    
+	</div> <!-- /container -->
+      <ul ng-repeat="obj in result">
+  <b>Welcom {{obj.name}}</b>
+</ul>
+         <form ng-submit="formSubmit()">
+             <center>
+            <h4 class = "form-signin-heading"><?php echo $msg; ?></h4>
+   </center>
+<div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">person</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="text" class="form-control"  name="user_id" ng-model="user_id" placeholder="User ID"  required autofocus>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="password" class="form-control"  name="password" ng-model="password"  placeholder="Password" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="">
+                            <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-blue">
+                            <label for="rememberme">Remember Me</label>
+                        </div>
+                        <div class="">
+                            
+            <button class = "btn btn-block bg-blue waves-effect" type = "submit"
+               name = "login">Login</button>
+                        </div>
+                    </div>
+                    
+                    <!--
+                     <div class="m-t-25 m-b--5 align-center">
+                        <a href="http://enlightenstudyhub.com/Signup.php">Create a membership?</a>
+                    </div>
+                    
+                    -->
+                      <div class="m-t-25 m-b--5 align-center">
+                          <a href="http://mjge.in">Back To Home</a>
+                    </div>
+                    <!-- <div class="row m-t-15 m-b--20">
+                        <div class="col-xs-6">
+                            <a href="logout.php">Register Now!</a>
+                        </div>
+                        <div class="col-xs-6 align-right">
+                            <a href="forgot-password.html">Forgot Password?</a>
+                        </div>
+                    </div> -->
+         </form>
+          </div>  </center>  
+         	</div>
+         	</div>
+  </div> 
+ </div>  </div>
+  </div>
+</div>
+
+         	
+         	<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    </div>
+         
+	
+          </div>
+          
+          
+             <modal visible="showModal">
+                    
+                </modal>
+              
+          
+   
+
+    
+   </body>
+
+<script src="app/login.js"></script>
+
+    <!-- Jquery Core Js -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="plugins/node-waves/waves.js"></script>
+
+    <!-- Validation Plugin Js -->
+    <script src="plugins/jquery-validation/jquery.validate.js"></script>
+
+    <!-- Custom Js -->
+    <script src="js/admin.js"></script>
+    <script src="js/pages/examples/sign-in.js"></script>
+	
+    <script src="js/connection_app.js"></script>
+
+	
+</html>
+<script>
+function storem(){
+//localStorage.setItem("ctype", "");
+//localStorage.setItem("ctype", "Competitive");
+  //  alert(localStorage.getItem("ctype"));
+    
+}
+</script>

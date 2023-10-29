@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html  lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>MJGE Account</title>
+    <!-- Favicon-->
+ <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Preloader Css -->
+    <link href="plugins/material-design-preloader/md-preloader.css" rel="stylesheet" />
+
+    <!-- JQuery DataTable Css -->
+    <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+
+  <!-- Colorpicker Css -->
+    <link href="plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
+
+    <!-- Dropzone Css -->
+    <link href="plugins/dropzone/dropzone.css" rel="stylesheet">
+
+    <!-- Custom Css -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="css/themes/all-themes.css" rel="stylesheet" />
+
+
+       <!-- Bootstrap Select Css -->
+       <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+   
+      
+<script src="js/angular.min.js"></script>
+<script src="js/sweetalert.min.js"></script>
+
+
+
+<script src="conver/html2canvas.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
+<script src="js/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/toastr.css">
+<script src="js/toastr.js"></script>
+
+
+    <style>
+       .red{
+    color:red;
+    }
+    .green{
+    color:green;
+    }
+        </style>
+
+
+</head>
+
+<body class="theme-indigo"  ng-controller="myCtrl">
+    
+
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="md-preloader pl-size-md">
+                <svg viewbox="0 0 75 75">
+                    <circle cx="37.5" cy="37.5" r="33.5" class="pl-red" stroke-width="4" />
+                </svg>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" placeholder="START TYPING...">
+        <div class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="Account_index.html">MJGE Account</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Call Search -->
+                   
+                    <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
+                    <!-- #END# Call Search -->
+            
+                    <!-- #END# Tasks -->
+                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    
+    
+
+
+	
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="image">
+                    <img src="images/logo.png" width="48" height="48" alt="User" />
+                </div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{user_name}} ({{user_id}}) </div>
+                    <div class="email">info@mjge.in </div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                            <li role="seperator" class="divider"></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
+                            <li role="seperator" class="divider"></li>
+                            <li><a href="javascript:void(0);" ng-click="logout()"  ><i class="material-icons">input</i>Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li>
+                        <a href="Account_index.html">
+                            <i class="material-icons">home</i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    
+				   
+                    <li>
+                        <a  ng-click="Req_item()" data-toggle="modal" data-target="#gen_cheque">
+                            <i class="material-icons">library_books</i>
+                            <span>Generate Cheque</span>
+                        </a>
+                    </li>
+                      
+                    </li>
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2020 <a href="javascript:void(0);">MJGE</a>.
+                </div>
+                <div class="version">
+                    <b>Version: </b> 1.0.0
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+
+             <!-- Exportable Table -->
+             <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Cheque Master
+                            </h2>
+                            
+                               <button type="button" ng-click="Req_item()" data-toggle="modal"  data-target="#gen_cheque" class="btn btn-default waves-effect pull-right">
+                                  <i class="material-icons">add</i> <label for="no"> Generate Cheque</label> 
+                              </button>
+                        </div>
+                        <div class="body">
+
+                            <a class="btn btn-default waves-effect " type="button" id="downloadLink" onclick="FeeexportF(this)">Export to excel</a>
+<button class="btn btn-default waves-effect " type="button"  onclick="Feeimprimir()">Print</button>
+          
+<script>
+          
+    function Feeimprimir() {
+var divToPrint=document.getElementById("Quotation");
+newWin= window.open("");
+newWin.document.write(divToPrint.outerHTML);
+newWin.print();
+newWin.close();
+}
+  
+  function FeeexportF(elem) {
+var table = document.getElementById("Quotation");
+var html = table.outerHTML;
+var url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url 
+elem.setAttribute("href", url);
+elem.setAttribute("download", "Students.xls"); // Choose the file name
+return false;
+}
+
+
+
+  </script>
+
+
+
+
+<div  style="overflow-x:auto; ">
+<table id="Quotation"  style="overflow-x:auto; font-size:13px" class="table table-bordered table-striped table-hover dataTable ">
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th>S.No.</th>
+            <th>Cheque Id</th>
+            <th>Cheque Number</th>
+            <th>Created By</th>
+            <th>Amount</th>
+            <th>Account No.</th>
+            <th>Created Date</th>
+            <th>Created Time</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+   
+    <tbody >
+        <tr   style="cursor: pointer;"  data-ng-repeat="D in Requi_details" ng-class="{'green': D.admin_approved == 'Approved', 'red': D.admin_approved == 'Rejected'}"  >
+            
+            <td   > 
+            <!--<button type="button" ng-click = "Requisition_data($index)" data-toggle="modal" data-target="#defaultModal"-->
+            <!--    aria-controls="collapseExampleEdit"  class="btn btn-default btn-circle waves-effect waves-circle waves-float">-->
+            <!--    <i class="material-icons">mode_edit</i>-->
+            <!--</button>-->
+            
+            <!--<button type="button" ng-click = "Requisition_DeteAll($index)" class="btn bg-red btn-circle waves-effect waves-circle waves-float">-->
+            <!--                                        <i class="material-icons">delete_forever</i>-->
+            <!--                                    </button>-->
+                                                
+            <!--                                     <button type="button" ng-click = "Requisition_Print_All($index)" class="btn bg-blue btn-circle waves-effect waves-circle waves-float">-->
+            <!--                                        <i class="material-icons">print</i>-->
+            <!--                                    </button>-->
+            
+            
+             <span ng-click = "Requisition_Value($index)" data-toggle="modal" data-target="#defaultModal"
+                aria-controls="collapseExampleEdit" class="tag label  bg-teal waves-effect" style="font-size:12px;">View <i class="material-icons" style="font-size:12px;">mode_edit</i></span>
+                
+             
+              <span  ng-click = "Requisition_Print_All($index)" class="tag label  bg-blue waves-effect" style="font-size:12px;">Print <i class="material-icons" style="font-size:12px;">print</i></span>
+             
+             
+            </td>
+
+            <td > {{$index+1}} </td>
+            <!-- <td> {{D.date}} {{D.time}}</td> -->
+            <td><span class="badge bg-blue ng-binding"> {{D.ch_id}}</span></td>
+            <td> {{D.cheque_number}} </td>
+            <td> {{D.created_by}}</td>
+            <td><span class="badge bg-pink ng-binding"> {{D.amount}}₹</span> </td>
+            <td> {{D.account_number}}</td>
+            <td> {{D.date}} </td>
+            <td> {{D.time}} </td>
+           
+            <!-- <td > {{D.admin_approved}} </td>
+            <td style="text-align:left; color:green; " >{{D.admin_remarks}}</td > -->
+             <td>
+                <span ng-click = "delete_registration($index)"  class="tag label  bg-red waves-effect" style="font-size:12px;">Delete <i class="material-icons" style="font-size:12px;">delete_forever</i></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div style='padding: 10px 20px 0px; border-top: dotted 1px #CCC; '>
+  <strong >Page {{ page_no_ }} of {{ total_no_of_pages_ }} </strong>
+  </div>
+  
+  <nav style='  cursor: pointer; ' aria-label="Page navigation clearfix w-50">
+                                  <ul class="pagination float-right mt-5">
+                                  
+                                         
+                                    <li    ng-repeat=" opt in opts" class='page-item {{opt.status}}' >
+                                      <a ng-click="callList(opt.id)" ng-class="" class='page-link text-dark'> {{opt.name}}</a> 
+                                  </li>
+   
+  </ul>
+  </nav>
+
+   
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Exportable Table -->
+
+           
+
+        </div>
+    </section>
+
+
+    <div class="modal fade in" id="gen_cheque" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog modal-md" role="document">
+            <div class="modal-content">
+              <div class="modal-header  bg-blue">
+                     <div>
+     <button type="button" class="btn btn-link waves-effect pull-right" data-dismiss="modal">CLOSE</button>
+                   
+                            <div class="input-group">
+                                
+                             
+                            <h4 class="modal-title">Generate Cheque</h4> 
+                           
+                           
+                           <span class="input-group-addon">
+                                    <i class="material-icons">playlist_add</i>
+                                </span>
+                           </div>
+                            
+                        </div>
+                      
+                    
+                </div> 
+    
+                <div class="modal-body">
+                    <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                        <li role="presentation" class="active"><a href="#axis" data-toggle="tab" aria-expanded="true">Axis Bank</a></li>
+                        <li role="presentation"><a href="#uco" data-toggle="tab">Uco Bank</a></li>
+                    </ul>
+    
+    
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="axis">
+                            <b>Axis Cheque</b>
+                            <p>
+                                <form class="form-horizontal">
+                                    <div class="row clearfix">
+                                          
+                                              
+                
+                                   
+                              
+                
+                                         
+                                          
+                                               
+                                            <div class="col-md-6">
+                                                <div class="media-left">
+                                                    <a href="javascript:void(0);">
+                                                        <img class="media-object" src="export_pdf/examples/images/axis.png" width="100%" height="100%">
+                                                    </a>
+                                                </div>
+                                                </div>
+                                            <div class="col-md-6">
+                                                        <b>Date</b>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="material-icons">date_range</i>
+                                                            </span>
+                                                            <div class="form-line">
+                                                                <input type="date" class="form-control " id="requisition_date" ng-model="requisition_date" placeholder="dd-mm-yyyy" required disabled >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                              
+                                                    <div class="col-md-12">
+                                                        <b>PAY</b>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="material-icons">description</i>
+                                                            </span>
+                                                            <div class="form-line">
+                                                                <input type="text" ng-model="pay" class="form-control " placeholder="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                
+                                                    <div class="col-md-4">
+                                                        <b>Amount</b>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="material-icons">₹</i>
+                                                            </span>
+                                                            <div class="form-line">
+                                                              <input type="number" ng-model="rupee" class="form-control " placeholder="">
+                                                              
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                      
+                                                    <div class="col-md-8">
+                                                        <b>A/c No.</b>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="material-icons">add</i>
+                                                            </span>
+                                                            <div class="form-line">
+                                                                <input type="number" ng-model="account_no" class="form-control " placeholder="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                   
+
+                
+                                              <div class="col-md-12">
+                                                  <b>रुपये Rupees</b>
+                                                  <div class="input-group">
+                                                      <span class="input-group-addon">
+                                                          <i class="material-icons">description</i>
+                                                      </span>
+                                                      <div class="form-line">
+                                                          <input type="number" ng-model="item_description" class="form-control " placeholder="">
+                                                      </div>
+                                                  </div>
+                                              </div>
+
+                                           
+                                            
+                
+                
+                                          </div>
+                                            <b>Cheque Number</b>
+                                          <div class="row clearfix">
+                                            <div class="col-md-3">
+                                              
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="material-icons">code</i>
+                                                    </span>
+                                                    <div class="form-line">
+                                                      <input type="number" ng-model="chrupee1" class="form-control " placeholder="">
+                                                      
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                                            <div class="col-md-3">
+                                                <div class="input-group">
+                                                    
+                                                    <div class="form-line">
+                                                      <input type="number" ng-model="chrupee2" class="form-control " placeholder="">
+                                                      
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                                            <div class="col-md-3">
+                                                <div class="input-group">
+                                                  
+                                                    <div class="form-line">
+                                                      <input type="number" ng-model="chrupee3" class="form-control " placeholder="">
+                                                      
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+    
+                                            <div class="col-md-3">
+                                                <div class="input-group">
+                                                  
+                                                    <div class="form-line">
+                                                      <input type="number" ng-model="chrupee4" class="form-control " placeholder="">
+                                                      
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                          
+                                      </div>  <div class="col-md-12">
+                                                <div class="input-group">
+                                                  
+                                            <b>No of. Cheque</b>
+                                                    <div class="form-line">
+                                                      <input type="number" ng-model="number_of_chks" class="form-control " placeholder="">
+                                                      
+                                                    </div>
+                                                </div>
+                                            </div>
+                                      </form>
+                                      
+                                      <button type="button" class="btn btn-primary waves-effect" ng-click="submit_cheque()">Create</button>
+                            </p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade  in" id="uco">
+                            <b>Uco Cheque</b>
+                            <p>
+                                <form class="form-horizontal">
+                                    <div class="row clearfix">  
+                                            <div class="col-md-6">
+                                                <div class="media-left">
+                                                    <a href="javascript:void(0);">
+                                                        <img class="media-object" src="export_pdf/examples/images/uco.jpg" width="100%" height="100%">
+                                                    </a>
+                                                </div>
+                                                </div>
+                                            <div class="col-md-6">
+                                                        <b>Date</b>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="material-icons">date_range</i>
+                                                            </span>
+                                                            <div class="form-line">
+                                                                <input type="date" class="form-control " id="requisition_date" ng-model="requisition_date" placeholder="dd-mm-yyyy" required disabled >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                              
+                                                    <div class="col-md-12">
+                                                        <b>PAY</b>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="material-icons">description</i>
+                                                            </span>
+                                                            <div class="form-line">
+                                                                <input type="text" ng-model="pay_uco" class="form-control " placeholder="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                
+                                                    <div class="col-md-4">
+                                                        <b>Amount</b>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="material-icons">₹</i>
+                                                            </span>
+                                                            <div class="form-line">
+                                                              <input type="number" ng-model="amount_uco" class="form-control " placeholder="" ng-change="numberToWord_get()"> 
+                                                            </div>
+                                                        </div>
+                                                   </div>
+                      
+                                                    <div class="col-md-8">
+                                                        <b>A/c No.</b>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="material-icons">add</i>
+                                                            </span>
+                                                            <div class="form-line">
+                                                                <input type="number" ng-model="account_number_uco" class="form-control " placeholder="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                              
+                                              
+                                              
+                                                    <div class="col-md-12">
+                                                  <b>रुपये Rupees</b>
+                                                  <div class="input-group">
+                                                      <span class="input-group-addon">
+                                                          <i class="material-icons">description</i>
+                                                      </span>
+                                                      <div class="form-line">
+                                                          <input type="text" ng-model="rupee_uco" class="form-control " placeholder="">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                             
+                                             
+                                             
+                                            
+                
+                
+                                          </div>
+                                            <b>Cheque Number</b>
+                                          <div class="row clearfix">
+                                            <div class="col-md-3">
+                                              
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="material-icons">code</i>
+                                                    </span>
+                                                    <div class="form-line">
+                                                      <input type="number" ng-model="chk_1" class="form-control " placeholder="">
+                                                      
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                                            <div class="col-md-3">
+                                                <div class="input-group">
+                                                    
+                                                    <div class="form-line">
+                                                      <input type="number" ng-model="chk_2" class="form-control " placeholder="">
+                                                      
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                                            <div class="col-md-3">
+                                                <div class="input-group">
+                                                  
+                                                    <div class="form-line">
+                                                      <input type="number" ng-model="chk_3" class="form-control " placeholder="">
+                                                      
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+    
+                                            <div class="col-md-3">
+                                                <div class="input-group">
+                                                  
+                                                    <div class="form-line">
+                                                      <input type="number" ng-model="chk_4" class="form-control " placeholder="">
+                                                      
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                          
+                                      </div>  <div class="col-md-12">
+                                                <div class="input-group">
+                                                  
+                                            <b>No of. Cheque</b>
+                                                    <div class="form-line">
+                                                      <input type="number" ng-model="number_of_chks_uco" class="form-control " placeholder="">
+                                                      
+                                                    </div>
+                                                </div>
+                                            </div>
+                                      </form>
+                                      
+                                      <button type="button" class="btn btn-primary waves-effect" ng-click="submit_uco()">Create</button>
+                            </p>
+                        </div>
+    
+                    </div>
+    
+    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+
+    <!-- Jquery Core Js -->
+    <script src="app/cheque_master.js"></script>
+	
+    <!-- Jquery Core Js -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+   
+    <!-- Slimscroll Plugin Js -->
+    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="plugins/node-waves/waves.js"></script>
+
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+
+
+
+
+    <!-- Custom Js -->
+    <script src="js/admin.js"></script>
+    <script src="js/pages/tables/jquery-datatable.js"></script>
+    <script src="js/pages/forms/advanced-form-elements.js"></script>
+
+
+
+
+    <script src="js/pages/ui/modals.js"></script>
+    <!-- Demo Js -->
+    <script src="js/demo.js"></script>
+
+
+</body>
+
+</html>

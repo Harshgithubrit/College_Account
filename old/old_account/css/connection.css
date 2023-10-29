@@ -1,0 +1,35 @@
+
+  
+ 
+  
+  .net_message {
+    position: fixed;
+    left: 50%;
+    top: 0;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 1.0em;
+    transform: translate(-50%, -100%);
+    transition: transform .25s;
+  }
+  
+  #theme-teal {
+    background: #009688;
+    color: white;
+  }
+  
+  #theme-red {
+    background: #E91E63;
+    color: white;
+  }
+  
+  #theme-indigo {
+    background: #3F51B5;
+    color: white;
+  }
+  
+  body.theme-teal #theme-teal,
+  body.theme-red #theme-red,
+  body.theme-indigo #theme-indigo {
+    transform: translate(-50%, 0);
+  }

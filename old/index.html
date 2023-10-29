@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Welcome To | MJGE Account</title>
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Preloader Css -->
+    <link href="plugins/material-design-preloader/md-preloader.css" rel="stylesheet" />
+
+    <!-- Morris Chart Css-->
+    <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="css/themes/all-themes.css" rel="stylesheet" />
+
+
+    <script src="js/angular.min.js"></script>
+<script src="js/sweetalert.min.js"></script>
+
+
+<script src="js/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/toastr.css">
+<script src="js/toastr.js"></script>
+
+ <style>
+      .red{
+      color:red;
+      }
+      .green{
+      color:green;
+      }
+
+
+      .modal{
+   overflow:auto !important;
+}
+</style>
+</head>
+
+<body class="theme-indigo"  ng-controller="myCtrl">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="md-preloader pl-size-md">
+                <svg viewbox="0 0 75 75">
+                    <circle cx="37.5" cy="37.5" r="33.5" class="pl-red" stroke-width="4" />
+                </svg>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar 
+    
+    -->
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="index.html">MJGE Account</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Call Search 
+                    <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
+                   --> <!-- #END# Call Search -->
+                    <!-- Notifications -->
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                            <i class="material-icons">notifications</i>
+                            <span class="label-count">7</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">NOTIFICATIONS</li>
+                            <li class="body">
+                                <ul class="menu">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="icon-circle bg-light-green">
+                                                <i class="material-icons">person_add</i>
+                                            </div>
+                                            <div class="menu-info">
+                                                <h4>12 new members joined</h4>
+                                                <p>
+                                                    <i class="material-icons">access_time</i> 14 mins ago
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="javascript:void(0);">View All Notifications</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- #END# Notifications -->
+                    <!-- Tasks -->
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                            <i class="material-icons">flag</i>
+                            <span class="label-count">9</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">TASKS</li>
+                            <li class="body">
+                                <ul class="menu tasks">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <h4>
+                                                Footer display issue
+                                                <small>32%</small>
+                                            </h4>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 32%">
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="javascript:void(0);">View All Tasks</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- #END# Tasks -->
+                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="image">
+                    <img src="images/user.png" width="48" height="48" alt="User" />
+                </div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{user_name}} ({{user_id}}) </div>
+                    <div class="email">info@mjge.in </div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                            <li role="seperator" class="divider"></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
+                            <li role="seperator" class="divider"></li>
+                            <li><a href="javascript:void(0);"  ng-click="logout()" ><i class="material-icons">input</i>Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="active">
+                        <a href="index.html">
+                            <i class="material-icons">home</i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    
+                     <li class="" data-toggle="modal" data-target="#defaultModalItem"  >
+                        <a href="javascript:void(0);" class="js-search" data-close="true">
+                            <i class="material-icons">toc</i>
+                            <span>Item</span>
+                        </a>
+                    </li>
+                    
+                     <li class="" data-toggle="modal" ng-click="emp_modal()" data-target="#defaultModalEmployee"  >
+                            <a href="javascript:void(0);" class="js-search" data-close="true">
+                            <i class="material-icons">toc</i>
+                            <span>Employee</span> 
+                            </a>
+                        </li>
+                    
+                     <li class=""   >
+                        <a href="vendor.html" class="js-search" data-close="true">
+                            <i class="material-icons">domain</i>
+                            <span>Vendor</span>
+                        </a>
+                    </li>
+                    
+                    <li class="" data-toggle="modal" data-target="#defaultModal"  >
+                        <a href="javascript:void(0);" class="js-search" data-close="true">
+                            <i class="material-icons">receipt</i>
+                            <span>Student Fee</span>
+                        </a>
+                    </li>
+                    
+                     <li class=""  >
+                        <a href="fee_Report.html" class="js-search" data-close="true">
+                            <i class="material-icons">receipt</i>
+                            <span>Fee Report</span>
+                        </a>
+                    </li>
+
+                    <li class="" >
+                        <a href="Requisition.html" class="js-search" data-close="true">
+                            <i class="material-icons">chrome_reader_mode</i>
+                            <span>Requisition</span>
+                        </a>
+                    </li>
+                      <li class="" >
+                        <a href="Quotation.html" class="js-search" data-close="true">
+                            <i class="material-icons">view_list</i>
+                            <span>Quotation</span>
+                        </a>
+                    </li>
+
+                    <li class="" >
+                        <a href="Purchase_order.html" class="js-search" data-close="true">
+                            <i class="material-icons">view_list</i>
+                            <span>Purchase Order</span>
+                        </a>
+                    </li>
+                        <li class="" >
+                        <a href="other_expenses.html" class="js-search" data-close="true">
+                            <i class="material-icons">view_list</i>
+                            <span> Other Expenses</span>
+                        </a>
+                    </li>
+
+                    <li class="" >
+                        <a href="grn.html" class="js-search" data-close="true">
+                            <i class="material-icons">view_list</i>
+                            <span>GRN / PO-INVOICE</span>
+                        </a>
+                    </li>
+                     <li class="" >
+                        <a href="fee_structure.html" class="js-search" data-close="true">
+                            <i class="material-icons">view_list</i>
+                            <span>Fee Structure</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2021 <a href="javascript:void(0);">MJGE - Account</a>.
+                </div>
+                <div class="version">
+                    <b>Version: </b> 1.0.0
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+      
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2>DASHBOARD</h2>
+            </div>
+
+            <!-- Widgets -->
+            <!--<div class="row clearfix">-->
+            <!--    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >-->
+            <!--        <div class="info-box bg-light-blue hover-expand-effect">-->
+            <!--            <div class="icon">-->
+            <!--                <i class="material-icons">assessment</i>-->
+            <!--            </div>-->
+            <!--            <div class="content">-->
+            <!--                <div class="text"> Today Paid Fee:</div>-->
+            <!--                <div class="number" data-from="0" data-to={{tot_item}} data-speed="1000" data-fresh-interval="20">&#8377;{{total_grn}}</div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+                
+            <!--    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >-->
+            <!--        <div class="info-box bg-light-blue hover-expand-effect">-->
+            <!--            <div class="icon">-->
+            <!--                <i class="material-icons">assessment</i>-->
+            <!--            </div>-->
+            <!--            <div class="content">-->
+            <!--                <div class="text"> Total GRN:</div>-->
+            <!--                <div class="number" data-from="0" data-to={{tot_item}} data-speed="1000" data-fresh-interval="20">{{total_grn}}</div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">-->
+            <!--        <div class="info-box bg-pink hover-expand-effect">-->
+            <!--            <div class="icon">-->
+            <!--                <i class="material-icons">assessment</i>-->
+            <!--            </div>-->
+            <!--            <div class="content">-->
+            <!--                <div class="text"> Total Item:</div>-->
+            <!--                <div class="number" data-from="0" data-to={{tot_item}} data-speed="1000" data-fresh-interval="20">{{tot_item}}</div>-->
+            <!--            </div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+               
+                
+            <!--            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">-->
+            <!--        <div class="info-box bg-cyan hover-expand-effect">-->
+            <!--            <div class="icon">-->
+            <!--                <i class="material-icons">assignment</i>-->
+            <!--            </div>-->
+            <!--            <div class="content">-->
+            <!--                <div class="text">Total Supplier</div>-->
+            <!--                <div class="number" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20">{{total_vendor}}</div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">-->
+            <!--        <div class="info-box bg-light-green hover-expand-effect">-->
+            <!--            <div class="icon">-->
+            <!--                <i class="material-icons">style</i>-->
+            <!--            </div>-->
+            <!--            <div class="content">-->
+            <!--                <div class="text"> Total Requisition</div>-->
+            <!--                <div class="number " data-speed="1000" data-fresh-interval="20">{{total_req}}</div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">-->
+            <!--        <div class="info-box bg-orange hover-expand-effect">-->
+            <!--            <div class="icon">-->
+            <!--                <i class="material-icons">assignment_turned_in</i>-->
+            <!--            </div>-->
+            <!--            <div class="content">-->
+            <!--                <div class="text"> Total Quotation</div>-->
+            <!--                <div class="number " data-from="0" data-to="0" data-speed="1000" data-fresh-interval="20">{{total_quatation}}</div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">-->
+            <!--        <div class="info-box bg-pink hover-expand-effect">-->
+            <!--            <div class="icon">-->
+            <!--                <i class="material-icons">assessment</i>-->
+            <!--            </div>-->
+            <!--            <div class="content">-->
+            <!--                <div class="text"> Total Fee Structure</div>-->
+            <!--                <div class="number" data-from="0" data-to={{tot_item}} data-speed="1000" data-fresh-interval="20">{{total_fee_structure}}</div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >-->
+            <!--        <div class="info-box bg-light-green hover-expand-effect">-->
+            <!--            <div class="icon">-->
+            <!--                <i class="material-icons">assessment</i>-->
+            <!--            </div>-->
+            <!--            <div class="content">-->
+            <!--                <div class="text"> Total PO:</div>-->
+            <!--                <div class="number" data-from="0" data-to={{total_po}} data-speed="1000" data-fresh-interval="20">{{total_po}}</div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >-->
+            <!--        <div class="info-box bg-light-blue hover-expand-effect">-->
+            <!--            <div class="icon">-->
+            <!--                <i class="material-icons">assessment</i>-->
+            <!--            </div>-->
+            <!--            <div class="content">-->
+            <!--                <div class="text"> Total GRN:</div>-->
+            <!--                <div class="number" data-from="0" data-to={{tot_item}} data-speed="1000" data-fresh-interval="20">{{total_grn}}</div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+                
+            <!--</div>-->
+            
+            
+            <div class="row clearfix">
+                
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+                        <a href="grn.html" class="js-search" data-close="true">
+                    <div class="info-box bg-light-blue hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">assessment</i>
+                        </div>
+                        <div class="content">
+                            <div class="text"> Total Invoice: {{total_grn}}</div>
+                            <div class="number" data-from="0" data-to={{tot_item}} data-speed="1000" data-fresh-interval="20">&#8377; {{total_grn_amount}}</div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+                        <a href="fee_Report.html" class="js-search" data-close="true">
+                    <div class="info-box bg-light-blue hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">assessment</i>
+                        </div>
+                        <div class="content">
+                            <div class="text"> Today Paid Fee: {{td_fee}}</div>
+                            <div class="number" data-from="0" data-to={{tot_item}} data-speed="1000" data-fresh-interval="20">&#8377; {{td_amount}}</div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                
+              
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                     <a href="Requisition.html" class="js-search" data-close="true" >
+                    <div class="info-box bg-light-green hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">style</i>
+                        </div>
+                        <div class="content">
+                            <div class="text"> Total Requisition</div>
+                            <div class="number " data-speed="1000" data-fresh-interval="20">{{total_req}}/{{total_requisition_report}} <img src="images/new_gif.gif" id="Rnew_gif" width="48" alt="New" /> </div>  
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <a href="Quotation.html" class="js-search" data-close="true">
+                    <div class="info-box bg-orange hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">assignment_turned_in</i>
+                        </div>
+                        <div class="content">
+                            <div class="text"> Total Quotation</div>
+                            <div class="number " data-from="0" data-to="0" data-speed="1000" data-fresh-interval="20">{{total_quatation}}/{{total_q_report}}  <img src="images/new_gif.gif" id="Qnew_gif" width="48" alt="New" /> </div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+            
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+                      <a href="Purchase_order.html" class="js-search" data-close="true">
+                    <div class="info-box bg-light-green hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">assessment</i>
+                        </div>
+                        <div class="content">
+                            <div class="text"> Total PO: </div>
+                            <div class="number" data-from="0" data-to={{total_po}} data-speed="1000" data-fresh-interval="20">{{total_po}}/{{total_p_report}}  <img src="images/new_gif.gif" id="Pnew_gif" width="48" alt="New" />  </div>
+                        </div>
+                    </div>
+                    </a>
+                </div> 
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-pink hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">assessment</i>
+                        </div>
+                        <div class="content">
+                            <div class="text"> Total Fee Structure:</div>
+                            <div class="number" data-from="0" data-to={{tot_item}} data-speed="1000" data-fresh-interval="20">{{total_fee}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-pink hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">assessment</i>
+                        </div>
+                        <div class="content">
+                            <div class="text"> Total Item:</div>
+                            <div class="number" data-from="0" data-to={{tot_item}} data-speed="1000" data-fresh-interval="20">{{tot_item}}</div>
+                        </div>
+                        </div>
+                    </div>
+              
+                
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-cyan hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">assignment</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">Total Supplier</div>
+                            <div class="number" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20">{{total_vendor}}</div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            <!-- #END# Widgets -->
+
+
+ <div class="row clearfix">
+                <!-- Task Info -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>FEE DETAILS</h2>
+                         
+                        </div>
+                        <div class="body">
+                            
+                                        <div class="row clearfix">
+                <!-- Visitors -->
+                
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="card">
+                        
+                        <div class="header bg-green">
+                            <h2>
+                                FEE REPORT <small>Student fee details</small>
+                            </h2>
+                         <ul class="header-dropdown m-r--5">
+                         <a href="fee_Report.html" class="pull-right">
+                             <button type="button" class="btn bg-cyan btn-circle waves-effect waves-circle waves-float pull-right">
+                                    <i class="material-icons">navigate_next</i>
+                                </button>
+                                </a>
+                                </ul>
+                        </div>
+                        <div class="body">
+                         <ul class="list-group">
+                                <li class="list-group-item">TODAY <span class="badge bg-pink"><b>{{ todayreport}}</b> <small> Rs.</small></span></li>
+                                <li class="list-group-item">YESTERDAY <span class="badge bg-cyan"><b>{{ yesterdayreport}}</b> <small> Rs. </small></span></li>
+                                <li class="list-group-item">LAST WEEK <span class="badge bg-teal"><b>{{ thisweekreport}}</b> <small>Rs.</small></span></li>
+                                <li class="list-group-item">LAST MONTH <span class="badge bg-teal"><b>{{ thismonthreport}}</b> <small>Rs.</small></span></li>
+                                <li class="list-group-item">TOTAL <span class="badge bg-teal"><b>{{ totalreport}}</b> <small>Rs.</small></span></li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <div class="header bg-cyan">
+                            <h2>
+                                PAID/UNPAID <small>Fee details</small>
+                            </h2>
+                         <ul class="header-dropdown m-r--5">
+                         <a href="fee_Details.html" class="pull-right">
+                             <button type="button" class="btn bg-cyan btn-circle waves-effect waves-circle waves-float pull-right">
+                                    <i class="material-icons">navigate_next</i>
+                                </button>
+                                </a>
+                                </ul>
+                        </div>
+                        <div class="body">
+                         <ul class="list-group">
+                                <li class="list-group-item">TOTAL PAID<span class="badge bg-pink">{{paid}}</span></li>
+                                <li class="list-group-item">TOTAL UNPAID <span class="badge bg-cyan">{{unpaid}}</span></li>
+                                <li class="list-group-item">TOTAL HALF PAID  <span class="badge bg-teal">{{halfpaid}}</span></li>
+                                <li class="list-group-item">TOTAL FULL PAID  <span class="badge bg-teal">{{fullpaid}}</span></li>
+                                <li class="list-group-item">TOTAL   <span class="badge bg-teal">{{total}}</span></li>
+                               
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                  
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <div class="header bg-cyan">
+                            <h2>
+                                Due  <small>Fee details</small>
+                            </h2>
+                         <ul class="header-dropdown m-r--5">
+                         <a href="due_Details.html" class="pull-right">
+                             <button type="button" class="btn bg-cyan btn-circle waves-effect waves-circle waves-float pull-right">
+                                    <i class="material-icons">navigate_next</i>
+                                </button>
+                                </a>
+                                </ul>
+                        </div>
+                        <div class="body">
+                         <ul class="list-group">
+                        <li class="list-group-item">TOTAL Due<span class="badge bg-pink">{{due}}</span></li>
+                               
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                             </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Task Info -->
+
+            </div>
+
+            <!-- #END# CPU Usage -->
+            <div class="row clearfix">
+                <!-- Visitors -->
+                
+
+                
+              
+               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <div class="header bg-indigo">
+                            <h2>
+                                REQUISITIONS <small>Requisition details</small>
+                            </h2>
+                         <ul class="header-dropdown m-r--5">
+                         <a href="#" class="pull-right">
+                             <button type="button" class="btn bg-indigo btn-circle waves-effect waves-circle waves-float pull-right">
+                                    <i class="material-icons">navigate_next</i>
+                                </button>
+                                </a>
+                                </ul>
+                        </div>
+                        <div class="body">
+                         <ul class="list-group">
+                                <li class="list-group-item">TOTAL APPROVED<span class="badge bg-pink">{{total_approved}}</span></li>
+                                <li class="list-group-item">TOTAL PENDING <span class="badge bg-cyan">{{total_pending}}</span></li>
+                                <li class="list-group-item">TOTAL REJECTED  <span class="badge bg-teal">{{total_rejected}}</span></li>
+                                <li class="list-group-item">TOTAL  <span class="badge bg-teal">{{total_requisition_report}}</span></li>
+                            </ul>
+                           
+                        </div>
+                    </div>
+                </div>
+               
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <div class="header bg-deep-purple">
+                            <h2>
+                                QUOTATION <small>QUOTATION details</small>
+                            </h2>
+                         <ul class="header-dropdown m-r--5">
+                         <a href="#" class="pull-right">
+                             <button type="button" class="btn bg-deep-purple btn-circle waves-effect waves-circle waves-float pull-right">
+                                    <i class="material-icons">navigate_next</i>
+                                </button>
+                                </a>
+                                </ul>
+                        </div>
+                        <div class="body">
+                         <ul class="list-group">
+                                <li class="list-group-item">TOTAL APPROVED<span class="badge bg-pink">{{total_qapproved}}</span></li>
+                                <li class="list-group-item">TOTAL PENDING <span class="badge bg-cyan">{{total_qpending}}</span></li>
+                                <li class="list-group-item">TOTAL REJECTED  <span class="badge bg-teal">{{total_qrejected}}</span></li>
+                                <li class="list-group-item">TOTAL  <span class="badge bg-teal">{{total_q_report}}</span></li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+               
+                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <div class="header bg-teal">
+                            <h2>
+                                PURCHASE <small>PURCHASE details</small>
+                            </h2>
+                         <ul class="header-dropdown m-r--5">
+                         <a href="#" class="pull-right">
+                             <button type="button" class="btn bg-teal btn-circle waves-effect waves-circle waves-float pull-right">
+                                    <i class="material-icons">navigate_next</i>
+                                </button>
+                                </a>
+                                </ul>
+                        </div>
+                        <div class="body">
+                         <ul class="list-group">
+                                <li class="list-group-item">TOTAL APPROVED<span class="badge bg-pink">{{total_papproved}}</span></li>
+                                <li class="list-group-item">TOTAL PENDING <span class="badge bg-cyan">{{total_ppending}}</span></li>
+                                <li class="list-group-item">TOTAL REJECTED  <span class="badge bg-teal">{{total_prejected}}</span></li>
+                                <li class="list-group-item">TOTAL  <span class="badge bg-teal">{{total_prejected}}</span></li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <div class="header bg-green">
+                            <h2>
+                                GRN /PO-INVOICE <small>GRN/PO-INVOICE details</small>
+                            </h2>
+                             <ul class="header-dropdown m-r--5">
+                         <a href="#" class="pull-right">
+                             <button type="button" class="btn bg-green btn-circle waves-effect waves-circle waves-float pull-right">
+                                    <i class="material-icons">navigate_next</i>
+                                </button>
+                                </a>
+                                </ul>
+                        </div>
+                        <div class="body">
+                         <ul class="list-group">
+                                <li class="list-group-item">TOTAL APPROVED<span class="badge bg-pink">{{total_papproved}}</span></li>
+                                <li class="list-group-item">TOTAL PENDING <span class="badge bg-cyan">{{total_ppending}}</span></li>
+                                <li class="list-group-item">TOTAL REJECTED  <span class="badge bg-teal">{{total_prejected}}</span></li>
+                                <li class="list-group-item">TOTAL  <span class="badge bg-teal">{{total_prejected}}</span></li>
+                            </ul>
+                           
+                        </div>
+                    </div>
+                </div>
+               
+               
+          
+                <!-- Latest Social Trends -->
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="card">
+                        <div class="body bg-cyan">
+                            <div class="m-b--35 font-bold">PURCHASE ORDER</div>
+                            <ul class="dashboard-stat-list">
+                                <li>
+                                    TODAY
+                                    <span class="pull-right"><b>{{ todayreport_ }}</b> <small> Rs.</small></span>
+                                </li>
+                                <li>
+                                    YESTERDAY
+                                    <span class="pull-right"><b>{{ yesterdayreport_ }}</b> <small> Rs. </small></span>
+                                </li>
+                                <li>
+                                    LAST WEEK
+                                    <span class="pull-right"><b>{{ thisweekreport_ }}</b> <small>Rs.</small></span>
+                                </li>
+                                <li>
+                                    LAST MONTH
+                                    <span class="pull-right"><b>{{ thismonthreport_ }}</b> <small>Rs.</small></span>
+                                </li>
+                                <li>
+                                    TOTAL
+                                    <span class="pull-right"><b>{{totalreport_}}</b> <small>Rs.</small></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Latest Social Trends -->
+                <!-- Answered Tickets -->
+
+ 
+               
+
+             
+               
+                <!-- #END# Answered Tickets -->
+            </div>
+            
+
+            <div class="row clearfix">
+                <!-- Task Info -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>Approval Info</h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-hover dashboard-task-infos">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Task</th>
+                                            <th>Status</th>
+                                            <th>Manager</th>
+                                            <th>Progress</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Task A</td>
+                                            <td><span class="label bg-green">Doing</span></td>
+                                            <td>Test</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Task B</td>
+                                            <td><span class="label bg-blue">To Do</span></td>
+                                            <td>Test</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Task C</td>
+                                            <td><span class="label bg-light-blue">On Hold</span></td>
+                                            <td>Test</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-light-blue" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Task D</td>
+                                            <td><span class="label bg-orange">Wait Approvel</span></td>
+                                            <td>Test</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Task E</td>
+                                            <td>
+                                                <span class="label bg-red">Suspended</span>
+                                            </td>
+                                            <td>Test</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-red" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width: 87%"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Task Info -->
+
+            </div>
+        </div>
+    </section>
+
+
+    <div class="modal fade in" id="defaultModal" tabindex="-1" role="dialog" style="">
+        <div class="modal-dialog modal-lg " role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="defaultModalLabel">Search Student</h4>
+                </div>
+                <div class="modal-body">
+                  
+                   <!-- search field text-center text-sm-left d-block d-sm-inline-block-->
+                   <div class="row" style="padding-top:20px">
+                    <div class="col-md-3" >
+                       <label for="exampleFormControlSelect3">Select College</label>
+                       <div class="form-group">
+                         <div class="form-line form-group input-group">
+
+                           <select  ng-change="find_out()" style="width:150px;" id="college_id" ng-model="college_name" class="form-control form-control-sm" >
+							<option data-ng-repeat="x in College " value="{{x.college_id}}">{{x.college_name}}</option>
+							</select>
+                           
+                         </div>
+                       </div>
+                   </div>
+                   
+                   
+                      
+                     <div class="col-md-3">
+                       <label for="exampleFormControlSelect3">Course Type</label>
+                       <div class="form-group">
+                         <div class="form-line form-group input-group">
+                          
+                          
+                           
+                           <select ng-change="find_out()"  ng-model="subject_name"  class="form-control form-control-sm"  > 	    
+								<option data-ng-repeat="x in student_subjects  | filter:college_name " value="{{x.subject_id}}">{{x.subject_name}}</option>
+							</select>
+                      
+                         </div>
+                       </div>
+   
+                   </div>
+   
+                   <div class="col-md-3">
+                     <label for="exampleFormControlSelect3">Course</label>
+                     <div class="form-group">
+                       <div class="form-line form-group input-group">      
+                           <select   ng-model="course_type_name"  ng-change="find_out()"  class="form-control form-control-sm"  >    
+								<option data-ng-repeat="x in student_course_type  | filter:subject_name " value="{{x.course_type_id}}">{{x.course_type_name}}</option>
+							 </select>
+                       </div>
+                     </div>
+   
+                 </div>
+   
+                 <div class="col-md-3">
+                   <label for="exampleFormControlSelect3">Subjects</label>
+                   <div class="form-group">
+                     <div class="form-line form-group input-group">
+                      
+                    <select  ng-model="course_name"  ng-change="find_out()"   class="form-control form-control-sm"  >			  	  	    
+						<option data-ng-repeat="x in student_course  | filter:course_type_name " value="{{x.course_id}}">{{x.course_name}}</option>
+					</select>
+                     </div>
+                   </div>
+   
+               </div>
+
+                 <div class="col-md-3">
+                 <div class="form-group">
+                   <label for="exampleInputUsername1"  >Enter class for current Semester/Year </label>
+                   <div class="form-line form-group input-group">
+                      <select class="form-control form-control-sm" ng-model="current_class" id="my-select" >
+                    <option value="All">All</option>
+                            <option value="First Year">First Year</option>
+                            <option value="Second Year">Second Year</option>
+                            <option value="Third Year">Third Year</option>
+                            <option value="Fourth Year">Fourth Year</option>
+                            
+                            <option value="First Semester">First Semester</option>
+                            <option value="Second Semester">Second Semester</option>
+                            <option value="Third Semester">Third Semester</option>
+                            <option value="Fourth Semester">Fourth Semester</option>
+                            <option value="Fifth Semester">Fifth Semester</option>
+                            <option value="Sixth Semester">Sixth Semester</option>
+                            <option value="Seventh Semester">Seventh Semester</option>
+                            <option value="Eighth Semester">Eighth Semester</option>
+                      </select>
+                  </div>
+                 </div>
+               </div>
+   
+          
+                     </div>    
+
+   <div class="md-preloader pl-size-md" id="prog">
+                        <svg viewBox="0 0 75 75">
+                            <circle cx="37.5" cy="37.5" r="33.5" class="pl-teal" stroke-width="5"></circle>
+                        </svg>
+                    </div>
+
+                   <!-- close search -->
+
+   <div class="form-group">
+    <div class="search-bar open">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" style="background-color: rgb(222, 236, 236);" (keydown.enter)="onsearch()" ng-change="onsearch()" ng-model="search" placeholder="Search by Student Name or Student ID">
+        <div data-dismiss="modal" class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+               
+
+   <p ng-show="loading">Loading....</p>    <!-- Showing the status -->
+                      <p ng-hide="loading">{{Lstatus}}</p>
+
+
+<div class="input-group">
+                          <div class="input-group-append">
+                            
+                            <button class="btn btn-sm btn-gradient-primary pull-right" type="submit"  ng-click="onsearch()" >Search</button>
+                          </div>
+                        </div>
+                      </div>
+  
+                   
+                  
+
+  <a type="button" class="btn btn-gradient-success btn-sm" id="downloadLink" onclick="exportF(this)">Export to excel</a>
+  <button type="button" class="btn btn-gradient-success btn-sm"  onclick="imprimir()">Print</button>
+                    <div  style="width: 100%; overflow: auto;" >
+                    
+                      <table id="table" class="table table-hover" style="cursor: hand; cursor: pointer;">
+                      <thead>
+                        <tr>
+                          <th> Action </th>
+                          <th> # </th>
+                          <th> Thumb</th>
+                          <th> Student ID </th>
+                          <th> Name </th>
+                          <th>College Name</th>
+                          <th>Course(Subject)</th>
+                          <th>Sem/Year</th>
+                          <th> Email</th>
+                          <th> Contact </th>
+                        </tr>
+                      </thead>
+                      <tbody  ng-repeat="D in staff_details">
+                        <tr ng-click ="view_profile($index)">
+                         
+                            <td> 
+                                <button type="button" class="btn bg-blue btn-gradient-info btn-sm " ng-click ="view_profile($index)" >View Profile</button>
+                              </td>
+
+                          <td> {{$index+1}} </td>
+                          <td class="py-1">
+                            
+                            <img src="http://mjge.in/admin/admission/upload/{{D.photo}}" width="100%" alt="photo">
+                          </td>
+  
+                          <td> {{D.emp_id}} </td>
+                          <td> {{D.firstname}} {{D.middlename}} {{D.lastname}}</td>
+                          <td>{{D.college_name}}</td> 
+                          <td>{{D.course_type_name}}({{D.course_name}})</td> 
+                          <td>{{D.sem_year}} {{D.batch_session}}</td>
+                          <td> {{D.email}}</td>
+                          <td><span class="badge bg-pink ng-binding">{{D.mobile}}</span>  </td>
+                         
+                        </tr>
+                          
+                        
+                      </tbody>
+                    </table>
+  
+                  </div>
+
+                  <div style='padding: 10px 20px 0px; border-top: dotted 1px #CCC; '>
+                    <strong>Total No. Of Records : {{total_record}}</strong><br>
+                    <strong >Page {{ page_no_ }} of {{ total_no_of_pages_ }} </strong>
+                  </div>
+                  <nav style='  cursor: pointer; ' aria-label="Page navigation clearfix w-50">
+                    <ul class="pagination float-right mt-5">
+                      <li    ng-repeat=" opt in opts" class='page-item {{opt.status}}' >
+                        <a ng-click="callList(opt.id)" ng-class="" class='page-link text-dark'> {{opt.name}}</a> 
+                      </li>
+                    </ul>
+                  </nav>
+                  
+          <script>
+          
+            function imprimir() {
+        var divToPrint=document.getElementById("table");
+        newWin= window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+    }
+          
+          function exportF(elem) {
+  var table = document.getElementById("table");
+  var html = table.outerHTML;
+  var url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url 
+  elem.setAttribute("href", url);
+  elem.setAttribute("download", "Students.xls"); // Choose the file name
+  return false;
+}
+
+
+
+          </script>  
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+
+  
+    <div class="modal fade in" id="defaultModalItem" tabindex="-1" role="dialog" style="">
+        <div class="modal-dialog modal-md " role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="defaultModalLabel">Search Item</h4>
+                </div>
+                <div class="modal-body">
+                  
+   <div class="form-group">
+
+    <div class="search-bar open">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" style="background-color: rgb(222, 236, 236);" (keydown.enter)="Itemonsearch()" ng-change="Itemonsearch()" ng-model="item_search" placeholder="Search Item">
+        <div data-dismiss="modal" class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+               
+
+   <p ng-show="loading">Loading....</p>    <!-- Showing the status -->
+                      <p ng-hide="loading">{{Lstatus}}</p>
+
+
+<div class="input-group">
+                          <div class="input-group-append">
+                            
+                             <button type="button" data-toggle="collapse" data-target="#collapseExample_item" aria-expanded="false"
+                                  aria-controls="collapseExample" class="btn btn-default waves-effect ">
+                                    <i class="material-icons">add</i> <label for="no"> Add Item</label> 
+                                </button>
+                          </div>
+                          
+                          
+                              <div class="collapse" id="collapseExample_item" >
+                                                            <div class="modal-content">
+                                                                <div class="modal-header  bg-blue-grey">
+                                                                    
+                                                                    <div class="media">
+                                                                        
+                                                                        <div class="media-body" style=" color:#ffffff;">
+                                                                            <h4 class="modal-title">Add New Item Name</h4> 
+                                                                            
+                                                                        </div>
+                                                                        
+                                                                    </div>
+
+                                                                    
+                                                                </div>
+                                        
+                                                                
+                                                                    
+                                                                <div class="modal-body">
+                                                                
+                                                                    
+                                                                  <form class="form-horizontal">
+                                                                  <div class="row clearfix">
+                                                                    
+                                                                        <br>
+                                                                         <div class="row clearfix">
+                                                                         
+                                                                            
+                                                                              <div class="col-md-12">
+
+ <div class="input-group">
+                                    <div class="demo-radio-button">
+                                <input name="group1u"  ng-model="changedValu" value="Goods" type="radio" id="radio_1u" checked="">
+                                <label for="radio_1u">Goods</label>
+                                <input name="group1u"  ng-model="changedValu" value="Service" type="radio" id="radio_2u">
+                                <label for="radio_2u">Service</label>
+                               </div>
+                                </div>
+
+                                                                                <b>Item Category</b>
+                                                                                <div class="input-group">
+                                                                                <select class=" dropdown-toggle btn-default"  ng-model="categoryi" >
+                   
+                                                                                    <option ng-repeat="x1 in data_list_cnamesi" value="{{x1.id}}">{{x1.category_name}}</option>
+                                                                                </select>
+                                                                                </div>
+
+                                                                                <b>Item Name</b>
+                                                                                <div class="input-group">
+                                                                                    <span class="input-group-addon">
+                                                                                        <i class="material-icons">playlist_add</i>
+                                                                                    </span>
+                                                                                    <div class="form-line">
+                                                                                        <input  type="text" ng-model="item_name_add_new" class="form-control " placeholder="">
+                                                                                    
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
+                        
+                                                                                <b>Unit</b>
+                                                                                <div class="input-group">
+                                                                                <select class=" dropdown-toggle btn-default"  ng-model="unit" >
+                                                                                    <option value="box">box</option>
+                                                                                    <option value="cm">cm</option>
+                                                                                    <option value="dz">dz</option>
+                                                                                    <option value="ft">ft</option>
+                                                                                    <option value="g">g</option>
+                                                                                    <option value="in">in</option>
+                                                                                    <option value="kg">kg</option>
+                                                                                    <option value="km">km</option>
+                                                                                    <option value="lb">lb</option>
+                                                                                    <option value="mg">mg</option>
+                                                                                    <option value="m">m</option>
+                                                                                    <option value="pcs">pcs</option>
+                                                                                </select>
+                                                                                </div>
+                        
+                        
+                                                                            </div>
+                                                                            
+                        
+                                                                           
+                        
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    </form>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="submit" class="btn btn-link waves-effect"  type="button" data-toggle="collapse" data-target="#collapseExample_item" aria-expanded="false"
+                                                                    aria-controls="collapseExample_item" ng-click="save_item_name()">SAVE</button>
+                                                                    <button type="button" class="btn btn-link waves-effect"  type="button" data-toggle="collapse" data-target="#collapseExample_item" aria-expanded="false"
+                                                                    aria-controls="collapseExample_item">CLOSE</button>
+                                                                </div>
+                                                             
+                                        
+                                        
+                                        
+                                                            </div>
+                                                        </div>
+                          
+                        </div>
+                      </div>
+  
+                   
+                  
+
+  <a type="button" class="btn btn-gradient-success btn-sm" id="downloadLink" onclick="item_exportF(this)">Export to excel</a>
+  <button type="button" class="btn btn-gradient-success btn-sm"  onclick="item_imprimir()">Print</button>
+                    <div  style="width: 100%; overflow: auto; height:300px;" >
+                    
+                      <table id="item_table" class="table table-striped " style="cursor: hand; cursor: pointer;">
+                      <thead>
+                        <tr>
+                            <th> # </th>
+                          <th> Item Name </th>
+                          <th> Unit </th>
+                          <th> type </th>
+                          <th> Stock Details </th>
+                            <th> Action </th>
+                        </tr>
+                      </thead>
+                      <tbody  ng-repeat="D in itemdetails">
+                        <tr >
+                         
+                          
+
+                          <td> {{$index+1}} </td>
+                          
+  
+                          <td> <b>{{D.item_name}}</b> </td>
+                          <td> {{D.unit}} </td>
+                          <td> {{D.type}} </td>
+                          <td><span class="badge bg-pink ng-binding">{{D.stock_value}}</span>  </td>
+                           <td> 
+                                <button type="button"  data-toggle="modal" data-target="#defaultModalItemEdit" ng-click="onitem_select($index)"  class="btn btn-default btn-circle waves-effect waves-circle waves-float">
+                                    <i class="material-icons">edit</i>
+                                </button>
+                              </td>
+                        </tr>
+                          
+                        
+                      </tbody>
+                    </table>
+  
+                  </div>
+                  
+          <script>
+          
+
+function item_imprimir() {
+        var divToPrint=document.getElementById("item_table");
+        newWin= window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+    }
+          
+          function item_exportF(elem) {
+  var table = document.getElementById("item_table");
+  var html = table.outerHTML;
+  var url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url 
+  elem.setAttribute("href", url);
+  elem.setAttribute("download", "Item.xls"); // Choose the file name
+  return false;
+}
+          </script>  
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="modal fade in" id="defaultModalItemEdit" tabindex="-1" role="dialog" style="">
+        <div class="modal-dialog modal-md " role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="defaultModalLabel">Search Item</h4>
+                </div>
+                <div class="modal-body">
+                  
+ <div class="input-group">
+                                    <div class="demo-radio-button">
+                                <input name="group1ue"  ng-model="changedValue" value="Goods" type="radio" id="radio_1ue" checked="">
+                                <label for="radio_1ue">Goods</label>
+                                <input name="group1ue"  ng-model="changedValue" value="Service" type="radio" id="radio_2ue">
+                                <label for="radio_2ue">Service</label>
+                               </div>
+                                </div>
+
+                                                                                <b>Item Category</b>
+                                                                                <div class="input-group">
+                                                                                <select class=" dropdown-toggle btn-default"  ng-model="categoryie" >
+                   
+                                                                                    <option ng-repeat="x1 in data_list_cnamesie" value="{{x1.id}}">{{x1.category_name}}</option>
+                                                                                </select>
+                                                                                </div>
+
+ <b>Edit Item</b>
+                                                                                <div class="input-group">
+                                                                                    <span class="input-group-addon">
+                                                                                        <i class="material-icons">playlist_add</i>
+                                                                                    </span>
+                                                                                    <div class="form-line">
+                                                                                        <input  type="text" ng-model="item_name_edit" class="form-control " placeholder="">
+                                                                                    
+                                                                                      
+                                                                                    </div>
+                                                                                </div>   
+                        
+                                                                                <b>Unit</b>
+                                                                                <div class="input-group">
+                                                                                <select class=" dropdown-toggle btn-default"  ng-model="unite" >
+                                                                                    <option value="box">box</option>
+                                                                                    <option value="cm">cm</option>
+                                                                                    <option value="dz">dz</option>
+                                                                                    <option value="ft">ft</option>
+                                                                                    <option value="g">g</option>
+                                                                                    <option value="in">in</option>
+                                                                                    <option value="kg">kg</option>
+                                                                                    <option value="km">km</option>
+                                                                                    <option value="lb">lb</option>
+                                                                                    <option value="mg">mg</option>
+                                                                                    <option value="m">m</option>
+                                                                                    <option value="pcs">pcs</option>
+                                                                                </select>
+                                                                                </div>
+                        
+
+
+                                                                                           
+                  
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link waves-effect" ng-click="itemupdate()" data-dismiss="modal">UPDATE</button>
+                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+     <!-- Employee Modal Starts-->
+        <div class="modal fade in" id="defaultModalEmployee" tabindex="-1" role="dialog" style="">
+            <div class="modal-dialog modal-lg " role="document">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="defaultModalLabel">Search Employee</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="search-bar open">
+                                <div class="search-icon">
+                                    <i class="material-icons">search</i>
+                                </div>
+                                <input type="text" style="background-color: rgb(222, 236, 236);" (keydown.enter)="employee_on_search()" ng-change="employee_on_search()" ng-model="employee_search" placeholder="Search Employee">
+                                <div data-dismiss="modal" class="close-search">
+                                    <i class="material-icons">close</i>
+                                </div>
+                            </div>
+
+                            <p ng-show="loading">Loading....</p>
+                            <!-- Showing the status -->
+                            <p ng-hide="loading">{{Lstatus}}</p>
+
+
+                            <!-- Filter Section Starts -->
+                            <div class="container-fluid">
+                                <div class="row">
+
+                            <div class="col-md-6">
+                                <b>College Name</b><br>
+                                <div class="input-group" style=" margin-top: 10px;">
+                                    <select class=" dropdown-toggle btn-default" id="college12" ng-model="college_name" ng-change="college_name1()" style="width: 100%; height: 30px; background-color: #CCC;" >
+                                        <option value="">Select College</option>
+                                        <option ng-repeat="D in College_data" value="{{D.college_name}}">{{D.college_name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <b>Staff Type</b><br>
+                                <div class="input-group" style=" margin-top: 10px;">
+                                    <select class=" dropdown-toggle btn-default" id="staf12" ng-model="staff_type" ng-change="staff_type1()" style="width: 100%; height: 30px; background-color: #CCC;" >
+                                        <option value="" selected>Select Staff Type</option>
+                                        <option value="Assistant Professor">Assistant Professor</option>
+                                        <option value="Associate Assistant Professor">Associate Assistant Professor</option>
+                                        <option value="faculty">Faculty</option>
+                                        <option value="non_teaching_staff">Non-teaching staff</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                            <!-- Filter Section Ends -->
+                            <div class="input-group">
+                                <div class="input-group-append">
+                                    <button type="button" data-toggle="collapse" data-target="#collapseExample_employee" aria-expanded="false"
+                                        aria-controls="collapseExample_employee" class="btn btn-default waves-effect ">
+                                    <i class="material-icons">add</i> <label for="no"> Add Employee</label> 
+                                    </button>
+                                </div>
+                                <div class="collapse" id="collapseExample_employee" >
+                                    <div class="modal-content">
+                                        <div class="modal-header  bg-blue-grey">
+                                            <div class="media">
+                                                <div class="media-body" style=" color:#ffffff;">
+                                                    <h4 class="modal-title">Add New Employee</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form class="form-horizontal">
+                                                <div class="row clearfix">
+                                                    <br>
+                                                    <div class="row clearfix">
+                                                        <div class="col-md-12">
+                                                            <!-- <div class="input-group">
+                                                                <div class="demo-radio-button">
+                                                                <input name="group1u"  ng-model="changedValu" value="Goods" type="radio" id="radio_1u" checked="">
+                                                                <label for="radio_1u">Goods</label>
+                                                                <input name="group1u"  ng-model="changedValu" value="Service" type="radio" id="radio_2u">
+                                                                <label for="radio_2u">Service</label>
+                                                                </div>
+                                                                </div> -->
+                                                            <!-- <b>Item Category</b>
+                                                                <div class="input-group">
+                                                                   <select class=" dropdown-toggle btn-default"  ng-model="categoryi" >
+                                                                      <option ng-repeat="x1 in data_list_cnamesi" value="{{x1.id}}">{{x1.category_name}}</option>
+                                                                   </select>
+                                                                </div> -->
+                                                            <div class="row">
+                                                                
+                                                                <div class="col-md-6">
+                                                                    <b>Employee Name</b>
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <i class="material-icons">playlist_add</i>
+                                                                        </span>
+                                                                        <div class="form-line">
+                                                                            <input  type="text" ng-model="employee_name" class="form-control " placeholder="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-6">
+                                                                    <b>Designation</b>
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <i class="material-icons">playlist_add</i>
+                                                                        </span>
+                                                                        <div class="form-line">
+                                                                            <input  type="text" ng-model="designation" class="form-control " placeholder="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <b>College Name</b>
+                                                                    <div class="input-group" style="margin-top: 10px;">
+                                                                        <select class=" dropdown-toggle btn-default"  ng-model="college_name" style="width: 80%; height: 28px;" >
+                                                                            <option value="">Select College</option>
+                                                                            <option ng-repeat="D in College_data" value="{{D.college_name}}">{{D.college_name}}</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="col-md-6">
+                                                                    <b>Staff Type</b>
+                                                                    <div class="input-group" style="margin-top: 10px;">
+                                                                        <select class=" dropdown-toggle btn-default"  ng-model="staff_type" style="width: 80%; height: 28px;">
+                                                                            <option value="">Select Staff Type</option>
+                                                                            <option value="Assistant Professor">Assistant Professor</option>
+                                                                            <option value="Associate Assistant Professor">Associate Assistant Professor</option>
+                                                                            <option value="faculty">Faculty</option>
+                                                                            <option value="non_teaching_staff">Non-teaching staff</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <b>Monthly Salary</b>
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <i class="material-icons">playlist_add</i>
+                                                                        </span>
+                                                                        <div class="form-line">
+                                                                            <input  type="text" ng-model="monthly_salary" class="form-control " placeholder="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <b>PF (%)</b>
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <i class="material-icons">playlist_add</i>
+                                                                        </span>
+                                                                        <div class="form-line">
+                                                                            <input  type="text" ng-model="pf" class="form-control " placeholder="Enter in percent">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <b>ESI (%)</b>
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <i class="material-icons">playlist_add</i>
+                                                                        </span>
+                                                                        <div class="form-line">
+                                                                            <input  type="text" ng-model="esi" class="form-control " placeholder="Enter in percent">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <b>Bank Name</b>
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <i class="material-icons">playlist_add</i>
+                                                                        </span>
+                                                                        <div class="form-line">
+                                                                            <input  type="text" ng-model="bank_name" class="form-control " placeholder="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <b>Account Number</b>
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <i class="material-icons">playlist_add</i>
+                                                                        </span>
+                                                                        <div class="form-line">
+                                                                            <input  type="text" ng-model="account_no" class="form-control " placeholder="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <b>IFSC Code</b>
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <i class="material-icons">playlist_add</i>
+                                                                        </span>
+                                                                        <div class="form-line">
+                                                                            <input  type="text" ng-model="ifsc_code" class="form-control " placeholder="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <b>Branch</b>
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <i class="material-icons">playlist_add</i>
+                                                                        </span>
+                                                                        <div class="form-line">
+                                                                            <input  type="text" ng-model="branch" class="form-control " placeholder="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <b>Mobile Number</b>
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <i class="material-icons">playlist_add</i>
+                                                                        </span>
+                                                                        <div class="form-line">
+                                                                            <input  type="text" ng-model="mobile_no" class="form-control " placeholder="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <b>Email</b>
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <i class="material-icons">playlist_add</i>
+                                                                        </span>
+                                                                        <div class="form-line">
+                                                                            <input  type="text" ng-model="email" class="form-control " placeholder="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <b>Permanent Address</b>
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <i class="material-icons">playlist_add</i>
+                                                                        </span>
+                                                                        <div class="form-line">
+                                                                            <input  type="text" ng-model="address" class="form-control " placeholder="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <b>Created By</b>
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <i class="material-icons">playlist_add</i>
+                                                                        </span>
+                                                                        <div class="form-line">
+                                                                            <input  type="text" ng-model="created_by" class="form-control " placeholder="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-link waves-effect"  type="button"  
+                                                ng-click="Save_employee_details()">SAVE</button>
+                                            <button type="button" class="btn btn-link waves-effect"  type="button" data-toggle="collapse" data-target="#collapseExample_employee" aria-expanded="false"
+                                                aria-controls="collapseExample_employee">CLOSE</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a type="button" class="btn btn-gradient-success btn-sm" id="downloadLink" onclick="item_exportF(this)">Export to excel</a>
+                        <button type="button" class="btn btn-gradient-success btn-sm"  onclick="item_imprimir()">Print</button>
+                        <div  style="width: 100%; overflow: auto; height:300px;" >
+                            <table id="item_table" class="table table-striped " style="cursor: hand; cursor: pointer;">
+                                <thead>
+                                    <tr>
+                                        <th> # </th>
+                                        <th> Employee ID </th>
+                                        <th> Employee Name </th>
+                                        <th> Staff Type </th>
+                                        <th> Monthly Salary</th>
+                                        <th> Action </th>
+                                    </tr>
+                                </thead>
+                                <tbody  ng-repeat="D in empdetails">
+                                    <tr >
+                                        <td> {{$index+1}} </td>
+                                        <td> <b>{{D.employee_id}}</b> </td>
+                                        <td><span class="badge bg-pink ng-binding">{{D.employee_name}}</span> </td>
+                                        <td> {{D.staff_type}} </td>
+                                        <td>{{D.monthly_salary}}  </td>
+                                        <td> 
+                                            <button type="button"  data-toggle="modal" data-target="#defaultModalEmployeeEdit" ng-click="on_selectEmp($index)"  class="btn btn-default btn-circle waves-effect waves-circle waves-float">
+                                            <i class="material-icons">edit</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                      <div style='padding: 10px 20px 0px; border-top: dotted 1px #CCC; '>
+                            <strong >Page {{ page_no_new }} of {{ total_no_of_pages_new }} </strong> Total records {{tot_records_new}}
+                          
+                            <!-- <strong class="pull-right" >Total Fee Amount {{ total_fee }}₹</strong> -->
+                            </div>
+                            
+                            <nav style='  cursor: pointer; ' aria-label="Page navigation clearfix w-50">
+                                                            <ul class="pagination float-right mt-5">
+                                                            
+                                                                   
+                                                              <li    ng-repeat="opt in opts_new" class='page-item {{opt.status}}' >
+                                                                <a ng-click="callList_emp(opt.id)" ng-class="" class='page-link text-dark'> {{opt.name}}</a> 
+                                                            </li>
+                             
+                            </ul>
+                            </nav>
+                        <script>
+                            function item_imprimir() {
+                                    var divToPrint=document.getElementById("item_table");
+                                    newWin= window.open("");
+                                    newWin.document.write(divToPrint.outerHTML);
+                                    newWin.print();
+                                    newWin.close();
+                                }
+                                      
+                                      function item_exportF(elem) {
+                              var table = document.getElementById("item_table");
+                              var html = table.outerHTML;
+                              var url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url 
+                              elem.setAttribute("href", url);
+                              elem.setAttribute("download", "Item.xls"); // Choose the file name
+                              return false;
+                            }
+                                      
+                        </script>  
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Employee Modal Ends-->
+
+        <!-- Employee Modal Edit Starts-->
+
+        <div class="modal fade in" id="defaultModalEmployeeEdit" tabindex="-1" role="dialog" style="">
+            <div class="modal-dialog modal-md " role="document">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="defaultModalLabel">Edit Employee Details</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <!-- <div class="col-md-6">
+                                <b>Employee Id</b>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <i class="material-icons">playlist_add</i>
+                                    </span>
+                                    {}
+                                </div>
+                            </div> -->
+                            <div class="col-md-6">
+                                <b>Employee Name</b>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <i class="material-icons">playlist_add</i>
+                                    </span>
+                                    <div class="form-line">
+                                        <input  type="text" ng-model="employee_nameEdit" class="form-control " placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <b>Designation</b>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <i class="material-icons">playlist_add</i>
+                                    </span>
+                                    <div class="form-line">
+                                        <input  type="text" ng-model="designationEdit" class="form-control " placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <b>College Name</b>
+                                <div class="input-group" style="margin: 5px;">
+                                    <select class=" dropdown-toggle btn-default"  ng-model="college_nameEdit"  style="width: 80%;">
+                                        <option value="">Select College</option>
+                                        <option ng-repeat="D in College_data" value="{{D.college_name}}">{{D.college_name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <b>Staff Type</b>
+                                <div class="input-group" style="margin: 5px;">
+                                    <select class=" dropdown-toggle btn-default"  ng-model="staff_typeEdit" style="width: 80%; ">
+                                        <option value="Assistant Professor">Assistant Professor</option>
+                                        <option value="Associate Assistant Professor">Associate Assistant Professor</option>
+                                        <option value="faculty">Faculty</option>
+                                        <option value="non_teaching_staff">Non-teaching staff</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <b>Monthly Salary</b>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <i class="material-icons">playlist_add</i>
+                                    </span>
+                                    <div class="form-line">
+                                        <input  type="text" ng-model="monthly_salaryEdit" class="form-control " placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <b>PF</b>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <i class="material-icons">playlist_add</i>
+                                    </span>
+                                    <div class="form-line">
+                                        <input  type="text" ng-model="pfEdit" class="form-control " placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <b>ESI</b>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <i class="material-icons">playlist_add</i>
+                                    </span>
+                                    <div class="form-line">
+                                        <input  type="text" ng-model="esiEdit" class="form-control " placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <b>Bank Name</b>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <i class="material-icons">playlist_add</i>
+                                    </span>
+                                    <div class="form-line">
+                                        <input  type="text" ng-model="bank_nameEdit" class="form-control " placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <b>Account Number</b>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <i class="material-icons">playlist_add</i>
+                                    </span>
+                                    <div class="form-line">
+                                        <input  type="text" ng-model="account_noEdit" class="form-control " placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <b>IFSC Code</b>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <i class="material-icons">playlist_add</i>
+                                    </span>
+                                    <div class="form-line">
+                                        <input  type="text" ng-model="ifsc_codeEdit" class="form-control " placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <b>Branch</b>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <i class="material-icons">playlist_add</i>
+                                    </span>
+                                    <div class="form-line">
+                                        <input  type="text" ng-model="branchEdit" class="form-control " placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <b>Mobile Number</b>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <i class="material-icons">playlist_add</i>
+                                    </span>
+                                    <div class="form-line">
+                                        <input  type="text" ng-model="mobile_noEdit" class="form-control " placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <b>Email</b>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <i class="material-icons">playlist_add</i>
+                                    </span>
+                                    <div class="form-line">
+                                        <input  type="text" ng-model="emailEdit" class="form-control " placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <b>Permanent Address</b>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <i class="material-icons">playlist_add</i>
+                                    </span>
+                                    <div class="form-line">
+                                        <input  type="text" ng-model="addressEdit" class="form-control " placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-6">
+                                <b>Created By</b>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    <i class="material-icons">playlist_add</i>
+                                    </span>
+                                    <div class="form-line">
+                                        <input  type="text" ng-model="created_by" class="form-control " placeholder="">
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link waves-effect" ng-click="Employee_details_update()" data-dismiss="modal">UPDATE</button>
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+  
+       <!-- Jquery Core Js -->
+       <script src="app/index.js"></script>
+
+    <!-- Jquery Core Js -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="plugins/node-waves/waves.js"></script>
+
+    <!-- Jquery CountTo Plugin Js -->
+    <script src="plugins/jquery-countto/jquery.countTo.js"></script>
+
+    <!-- Morris Plugin Js -->
+    <script src="plugins/raphael/raphael.min.js"></script>
+    <script src="plugins/morrisjs/morris.js"></script>
+
+    <!-- ChartJs -->
+    <script src="plugins/chartjs/Chart.bundle.js"></script>
+
+    <!-- Flot Charts Plugin Js -->
+    <script src="plugins/flot-charts/jquery.flot.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.resize.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.pie.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.categories.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.time.js"></script>
+
+    <!-- Sparkline Chart Plugin Js -->
+    <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
+    <!-- Custom Js -->
+    <script src="js/admin.js"></script>
+    <script src="js/pages/index.js"></script>
+
+    <!-- Demo Js -->
+    <script src="js/demo.js"></script>
+</body>
+
+</html>
